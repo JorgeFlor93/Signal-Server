@@ -1,12 +1,17 @@
 #Base image
 FROM ubuntu:18.04 as base
 
-#Copy
-COPY . .
+# install build dependencies
+RUN apt update && apt install -y g++ 
 
-RUN make
+#Copy
+RUN mkdir /home/SignalServer
+WORKDIR /home/SignalServer/
+COPY . .
+ 
 
 #Tell Docker we are going to use this port
-EXPOSE 80
+EXPOSE 22
 
-CMD echo "This is a test." | wc -
+RUN chmod +x /home/SignalServer/app.sh
+RUN cd ~ \ ./app.sh 
