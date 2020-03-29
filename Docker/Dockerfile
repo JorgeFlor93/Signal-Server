@@ -8,10 +8,6 @@ RUN apt update && apt install -y g++
 RUN mkdir /home/SignalServer
 WORKDIR /home/SignalServer/
 COPY . .
- 
-
-#Tell Docker we are going to use this port
-EXPOSE 22
-
-RUN chmod +x /home/SignalServer/app.sh
-RUN cd ~ \ ./app.sh 
+RUN make
+#RUN chmod +x /home/SignalServer/app.sh
+#RUN cd ~ \ ./app.sh 
