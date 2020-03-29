@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+
+    signalserver:
+        container_name: signal-server
+        hostname: signal-server
+        build:
+            context: ./
+            dockerfile: Docker/Dockerfile
+        ports:
+          - 500:22
