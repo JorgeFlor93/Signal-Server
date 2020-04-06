@@ -3,7 +3,7 @@
 
 * __Funcionalidad que tiene actualmente la herramienta.__
 
-La aplicación de la cual vamos a partir se trata de CloudRF. Esta herramienta OpenSource
+La aplicación de la cual vamos a partir se trata de CloudRF. 
 
 * __Funcionalidad que tendrá cuando finalice el proyecto.__
 
