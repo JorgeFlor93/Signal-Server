@@ -6,12 +6,17 @@ FRQ=450
 
 #signalserver command res = 1200, no HD
 
-while [ $PM -le 11 ]; do
-	if [ $PM -ge 7 && $PM -lt 11 ]; then FRQ=1500 else FRQ=450 fi
+while [ $PM -le 11 ]
+do
+	if [[ $PM -ge 7 && $PM -lt 11 ]]; then 
+		FRQ=1500 
+	else 
+		FRQ=450 
+	fi
 	echo "./signalserver Mode:$PM FRQ:$FRQ Radius 10km..."
-	time ./signalserver -sdf ../data -lat 40.402770 -lon -3.710738 -txh 25 -f $FRQ -erp 20 -rxh 2 -rt 10 -o 10km/10_egli -R 10 -res 1200 -pm $PM -pe 1
+	time ../signalserver -sdf ../data -lat 40.402770 -lon -3.710738 -txh 25 -f $FRQ -erp 20 -rxh 2 -rt 10 -o 10km/10_MODE:$PM -R 10 -res 1200 -pm $PM -pe 1
 	echo "./signalserver Mode:$PM FRQ:$FRQ Radius 50km..."
-	time ./signalserver -sdf ../data -lat 40.402770 -lon -3.710738 -txh 25 -f $FRQ -erp 20 -rxh 2 -rt 10 -o 50km/50_egli -R 50 -res 1200 -pm $PM -pe 1
+	time ../signalserver -sdf ../data -lat 40.402770 -lon -3.710738 -txh 25 -f $FRQ -erp 20 -rxh 2 -rt 10 -o 50km/50_MODE:$PM -R 50 -res 1200 -pm $PM -pe 1
 	let PM=PM+1
 done
 
