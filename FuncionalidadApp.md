@@ -10,6 +10,7 @@ Los parámetros de entrada se dividen en:
 
 <details>  
   <summary>1. Parámetros del modelo:</summary> 
+  
   ##### INPUT:
   
      * lat Tx Latitude (decimal degrees) -70/+70
@@ -32,8 +33,8 @@ Los parámetros de entrada se dividen en:
      * resample Resample Lidar input to specified resolution in meters (optional)
 </details>
 Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional).
-
-&nbsp;<details>
+&nbsp;
+<details>
   <summary>
     2. Ficheros de datos
   </summary>
