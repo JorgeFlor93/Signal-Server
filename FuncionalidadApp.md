@@ -1,7 +1,7 @@
-### Este documento resume el proyecto a desarrollar.
+#### Este documento resume el proyecto a desarrollar.
 ------
 
-* __Funcionalidad actual de la herramienta SignalServer.__
+### __Funcionalidad actual de la herramienta SignalServer.__
 
 La aplicación de partida es Cloud-RF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 
@@ -73,6 +73,6 @@ Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como o
 Los parámetros a la salida establecen el alcance de nuestra cobertura radiada -R, el modelo de propagación escogido para el cálculo, el tipo de terreno sobre el que realizamos la propagación (necesario para optimizar el cálculo realizado por los diferentes tipos de modelo) y el nombre del archivo donde se almacenan los resultados.
 
 
-* __Funcionalidad que tendrá cuando finalice el proyecto.__
+### __Funcionalidad que tendrá cuando finalice el proyecto.__
 
-* __De la funcionalidad que tendrá el proyecto indicar cuál ya existía cuál es nueva y cuál deja de existir con respecto a lo que ya había.__
+### __De la funcionalidad que tendrá el proyecto indicar cuál ya existía cuál es nueva y cuál deja de existir con respecto a lo que ya había.__
