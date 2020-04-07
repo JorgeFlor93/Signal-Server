@@ -1,13 +1,18 @@
 ### Este documento trata sobre la funcionalidad que queremos dotar a la herramienta.
 ------
 
-* __Funcionalidad que tiene actualmente la herramienta.__
+* __Funcionalidad actual de la herramienta SignalServer.__
 
 La aplicación de partida es Cloud-RF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 
-La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell), y lee los datos de entrada como parámetros y ficheros de datos. Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!). 
+La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell). Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!), en ella podemos encontrar información detallada de este proyecto.
 
 SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
+
+Su forma de uso es:
+
+`signalserver [data options] [input options] [output options] -o outputfile`
+
 Los parámetros de la herramienta se dividen en: 
 
 <details>  
@@ -67,9 +72,6 @@ Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como o
 </details>
 Los parámetros a la salida establecen el alcance de nuestra cobertura radiada -R, el modelo de propagación escogido para el cálculo, el tipo de terreno sobre el que realizamos la propagación (necesario para optimizar el cálculo realizado por los diferentes tipos de modelo) y el nombre del archivo donde se almacenan los resultados.
 
-
-<br/>Su forma de uso es:
-`signalserver [data options] [input options] [output options] -o outputfile`
 
 * __Funcionalidad que tendrá cuando finalice el proyecto.__
 
