@@ -1,4 +1,4 @@
-### Este documento trata sobre la funcionalidad que queremos dotar a la herramienta.
+### Este documento resume el proyecto a dessarrollar.
 ------
 
 * __Funcionalidad actual de la herramienta SignalServer.__
