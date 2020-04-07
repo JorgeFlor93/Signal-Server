@@ -63,7 +63,7 @@ Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como o
      * pe Propagation model mode: 1=Urban,2=Suburban,3=Rural
      * ked Knife edge diffraction (Already on for ITM)
 </details>
-Se definen los siguientes parámetros a la salida para establecer el alcance de nuestra cobertura radiada -R, el modelo de propagación escogido para el cálculo, el tipo de terreno sobre el que realizamos la propagación (necesario para optimizar el cálculo realizado por los diferentes tipos de modelo) y el nombre del archivo donde se almacenan los resultados.
+Los parámetros a la salida establecen el alcance de nuestra cobertura radiada -R, el modelo de propagación escogido para el cálculo, el tipo de terreno sobre el que realizamos la propagación (necesario para optimizar el cálculo realizado por los diferentes tipos de modelo) y el nombre del archivo donde se almacenan los resultados.
 
 
 <br/>Su forma de uso es:
