@@ -1,0 +1,207 @@
+SIGNAL SERVER CHANGELOG 
+
+3.11 - 25 Sept 2018
+More LIDAR edge cases, tidying of many meridian hacks(!) and regression tested with different LIDAR resolutions and configurations eg. 1x2, 2x1..
+Meridian issue fixed for 30m but deliberately broken for 2m due to previous crap hacks causing a headache. Can be fixed in DEM by re-processing LIDAR tiles to NOT span the meridian.
+
+3.10 - 15 Apr 2018
+360 min_west fix 
+
+3.09 - 7 Feb 2018
+Meridian LIDAR cropping fix
+
+3.08 - 17 Dec 2017
+Proper fix for nearfield void
+More LIDAR edge cases: 1x2, 2x1...
+Removed exit() if no colour file
+Polyfilla for gaps at tile edges  
+SUI model clutter factor
+
+3.07 - 2 Sep 2017
+Bugfixes for LIDAR edge cases with mismatched tiles, missing tiles etc.
+
+3.06 - 23 June 2017
+Cropping edge cases with > 100km and LOS
+
+3.05 - 18 June 2017
+LIDAR overhaul for mismatched tiles and different resolutions. No longer expects x/y grid of tiles of equal size.
+Dynamic resampling so user can specify *any* resolution less than maximum resolution of data. 
+
+3.04 - 19 April 2017
+Added Egli VHF/UHF model courtesy of G6DTX
+Adjusted SUI correction factor for height. Most academic papers have /2000 but some are /2. Only out by 1e3 :O 
+New propagation model unit test script at models/test.cc
+Added 10 to ARRAYSIZE again as it was needed :p
+
+3.03 - 19 March 2017
+Path profile bugfix for some models
+Error handling for when prop loss < free space loss
+
+3.02 - 22 Feb 2017
+Gareth's error handling
+
+3.01 - 16 Feb 2017
+Image crop (Major performance improvement later on), SUI bugfix, txelev replaced 
+
+3.0 - 02 Feb 2017
+Image rendering library support. Uses third party PNG lib instead of expensive PPM.
+Code cleanup by a professional developer.
+More errors to stderr 
+
+2.94 - 03 Oct 2016
+Reduced MAXPAGES array for LIDAR to allow for uber large tiles
+
+2.93 - 30 Sep 2016
+More tiles
+
+2.92 - 29 September 2016
+Overhauled LIDAR functions to read in (more) native format tiles.
+Replaced 'super tile' code with more scalable multi-tile code: currently limited to 16.
+
+2.9 - 01 September 2016
+MODIS Landcover support in ASCII Grid format. Works for 1200/3600 SRTM only.
+
+2.82 - 15 July 2016
+Fixed bug in SUI model which was making it over optimistic.
+
+2.81 - 01 July 2016
+Added Rx gain value for PPA report only and tweaked text report to show ERP/EIRP with and without Rx gain
+
+2.8 - 08 June 2016
+Widened scope of LIDAR / ASCII Grid input to include sub-meter accurate tiles. (ac000)
+Optimised memory usage (ac000)
+Tidied and refactored some code (ac000)
+Updated Readme and callsign because I passed my intermediate :)
+
+2.75 - 22 Apr 2016
+Added Hata model logic for f < 200MHz
+
+
+2.72 - 07 Feb 2016
+Expanded LIDAR coverage to read in 4 adjacent ASCII tiles in a 2x2 grid
+Removed requirement to specify -res in LIDAR mode as it's in the file header
+
+2.71 - 14 Jan 2016
+LIDAR longitude bugfix for Greenwich meridian tiles
+Adjusted ITM parameters warnings
+
+2.7 - 03 Jan 2016
+Added support for LIDAR data in ASCII grid format with WGS84 bounds
+Increased resolution to +54000 pixels per degree (2m)
+Removed support for Windows SDF filenames without:colons.
+
+
+2.63 - 10 Nov 2015
+Added sanity check and handicap to ECC33 model when used with low Tx heights in hilly areas = sea of red
+
+2.62 - 30 Oct 2015
+Fixed near field 'lattice' bug at 30m resolution caused by previous fix to fill in void around antenna.
+Credit to Nils Lofstad for helping nail this down.
+
+2.61 - 27 Oct 2015
+FSPL model floor reduced from 150MHz to 20MHz.
+
+2.6 - 9 June 2015
+Multi-threading support added by Michael Ramnarine
+PlotPropagation() and PlotLOSMap() use four threads by default
+Feature can be disabled with -nothreads flag
+Static and global variables have been made thread safe
+
+2.5 - 27 May 2015
+Code refactored by Andrew Clayton / ac000 with header files
+New Makefile with c / c++ multi mode compilation
+Single executable now with run time switch for HD mode 
+Models separated into directory
+
+2.44 - 25 Mar 2015
+Improved PPA text report to list other prop models
+Added HD mode to build script
+
+2.43 - 06 Mar 2015
+Improved model error handling
+Tweaked params for Ericsson model and inverted environment variables to match rest
+
+v2.41 - 27 February 2015
+Simpler PPA output for scripting
+Enabled new models for PPA (previously just ITM)
+#Define to enable HD mem options/build at build time (-DHD)
+Optimised build command (-Ofast) to improve speed by 14%
+Improved test script
+
+2.4 - January 2015
+Added SUI, ECC33, Ericsson models in new 'models' module
+Added model validation
+Retired individual model files as some models only 1 or 2 lines of code
+
+2.31 - October 2014
+ERP up to 5MW for Mexican TV(!)
+
+2.3 - 29 September 2014
+Replaced itm.cpp with itwom3.0.cpp and added ITWOM model as result
+
+2.23 - 14 August 2014
+Improved diffraction model to work only for dips deeper than 20m and not to exaggerate result by an arbitrary figure (3)
+Fixed false 'frequency too low' error message for FSPL model which was intended for Hata models only.
+
+2.22 - 
+Fixed LOS not outputting bounds
+
+2.2 - 
+Made .dot output opt in to save some disk space
+Changed version number to line 1 of main.cpp instead of buried in code in two places.
+
+v2.1 - 
+Added experimental dual core support with -haf
+Requires double the RAM
+
+1.3.8 - 16 Jan 2014
+Added Free Space Path Loss model (with optional diffraction)
+
+1.3.7 - 30 Dec 2013
+Added propagation model option (-pm)
+Added HATA urban/suburban/open models (150-1500MHz) 
+Added COST231-Hata (urban) model (1500-2000MHz) 
+Added custom Knife Edge Diffraction option (-ked) to enhance new models
+Removed unused variables 
+
+1.3.6 - 12 Aug 2013
+Added LOS model for up to 100GHz 
+Added 1 arc second (3600 pixels/degree) support (-res 3600)
+
+1.3.5 - 07 Jul 2013
+Reduced maxpages to 9
+Added memset() to clear DEM before use
+
+1.3.4 - 16 May 2013
+High resolution SRTM1 1-arc second DEM support added.
+Use -res 3600 and ensure .sdf files are produced with srtm2sdf-hd
+
+1.3.3 - 04 Nov 2012
+Air planning:
+Increased maximum Tx height to 60,000 (m/f)
+Increased maximum Rx height to 60,000 (m/f)
+
+1.3.2 - 04 Oct 2012
+Re-instated grey scale option to allow for terrain background.
+Off by default. Enable with switch -t
+
+1.3 - 03 Jan 2012
+Added user defined clutter layers from SPLAT! (-udt switch)
+
+1.2 - 31 Dec 2011
+Max colours increased from 32 to 128
+Radius value fixed at metric
+Metric / Imperial conversion bug fixed
+
+1.1 - 08 Dec 2011
+Max Tx altitude increased to 20,000(m) for high altitude aircraft. "Can you 'ere me now?"
+Added 2 new options -tercon, -terdic for *custom* dielectric values and ground conductivity. -te terrain option remains. Use with care!
+New Earth Dielectric range (Permittivity): 80 to 0.1
+New Conductivity range (Siemens/m): 0.01 to 0.000001
+
+1.0 - 19 November 2011
+Signal Server forked from SPLAT!
+
+
+
+
