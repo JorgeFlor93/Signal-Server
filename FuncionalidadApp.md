@@ -6,9 +6,14 @@
 La aplicación de partida es CLOUDRF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell), y lee los datos de entrada como parámetros y ficheros de datos. Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!). 
 SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
-Los parámetros de entrada se dividen en características del modelo de telecomunicación y ficheros de datos.
+Los parámetros de entrada se dividen en: 
+-Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional).
 <details>
+  
   <summary>Parámetros de entrada</summary>
+  
+  ##### INPUT:
+  
      * lat Tx Latitude (decimal degrees) -70/+70
      * lon Tx Longitude (decimal degrees) -180/+180
      * txh Tx Height (above ground)
@@ -27,6 +32,18 @@ Los parámetros de entrada se dividen en características del modelo de telecomu
      * cl Climate code 1-6 (optional)
      * rel Reliability for ITM model 50 to 99 (optional)
      * resample Resample Lidar input to specified resolution in meters (optional)
+</details>
+-Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como opciones de entrada. Los archivos .sdf contienen los modelos digitales del terreno (DEM). Estos existen en diferentes resoluciones, STRM, STRM v2 y STRM-3 (versión 2.1). Estas versiones ofrecen resoluciones en 1 arcosegundo (90m aprox) y 3 arcos (30m) pudiéndose obtener del sitioweb [USGS](https://dds.cr.usgs.gov/srtm/).
+<details>
+  <summary>Ficheros de datos</summary>
+ 
+  ##### DATA:
+  
+     * sdf Directory containing SRTM derived .sdf DEM tiles
+     * lid ASCII grid tile (LIDAR) with dimensions and resolution defined in header
+     * udt User defined point clutter as decimal co-ordinates: 'latitude,longitude,height'
+     * clt MODIS 17-class wide area clutter in ASCII grid format
+     
 </details>
 
 Su forma de uso es:
