@@ -5,7 +5,7 @@
 
 La aplicación de partida es Cloud-RF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 
-La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell). Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!), en ella podemos encontrar [información](https://cloudrf.com/open%20source) mucho más detallada de las bases de este proyecto.
+La versión rscogida para el proyecto es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell). Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!), en ella podemos encontrar [información](https://cloudrf.com/open%20source) mucho más detallada de las bases de este proyecto.
 
 SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
 
@@ -75,6 +75,14 @@ Los parámetros a la salida establecen el alcance de nuestra cobertura radiada -
 
 ### Funcionalidad que tendrá cuando finalice el proyecto
 
-Nuestra aplicación busca ampliar las posibilidades de la herramienta así como un rendimiento más óptimo.
+Esta aplicación busca ampliar las posibilidades de la herramienta así como un rendimiento más óptimo.
+
+Se plantea inicialmente desarrollar un servidor que administre las peticiones de los clientes y devuelva el cálculo de la propagación en una región específica, haciendo uso de los modelos (hata, ITM, LOS, EC33, VHF/UHF...) descritos.
+
+Se va a desplegar haciendo uso de la herramienta [Docker](https://www.docker.com/why-docker) . Esta API permite cierta flexibilidad en cuanto a arquitecturas y el uso de múltiples lenguajes.
+
+Las peticiones de los clientes van a interactuar con el servidor abriendo canales de comunicación bidireccionales y full-duplex sobre un único socket TCP. Para ello se hace uso de la librería [Websockets](https://github.com/facundofarias/awesome-websockets) . Esta herramienta está diseñada para ser implementada en navegadores y servidores web. Estos canales son independientes del lenguaje usado para la comunicación. Estas librerías se van a implementar en C++. Se pretende hacer uso de unas ya existentes para posteriormente adaptarlas a la aplicación.
 
 ### De la funcionalidad que tendrá el proyecto indicar cuál ya existía cuál es nueva y cuál deja de existir con respecto a lo que ya había
+
+
