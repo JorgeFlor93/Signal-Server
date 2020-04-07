@@ -8,10 +8,8 @@ La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herra
 SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
 Los parámetros de entrada se dividen en: 
 
-<details>
-  
-  <summary>Parámetros del modelo:</summary>
-  
+<details>  
+  <summary>Parámetros del modelo:</summary> 
   ##### INPUT:
   
      * lat Tx Latitude (decimal degrees) -70/+70
@@ -35,7 +33,9 @@ Los parámetros de entrada se dividen en:
 </details>
 Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional).
 
+
 <details>
+  
   <summary>Ficheros de datos</summary>
  
   ##### DATA:
