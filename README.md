@@ -83,6 +83,14 @@ Se va a desplegar haciendo uso de la herramienta [Docker](https://www.docker.com
 
 Las peticiones de los clientes van a interactuar con el servidor abriendo canales de comunicación bidireccionales y full-duplex sobre un único socket TCP. Para ello se hace uso de la librería [Websockets](https://github.com/facundofarias/awesome-websockets) . Esta herramienta está diseñada para ser implementada en navegadores y servidores web. Estos canales son independientes del lenguaje usado para la comunicación. Estas librerías se van a implementar en C++. Se pretende hacer uso de unas ya existentes para posteriormente adaptarlas a la aplicación.
 
+La aplicación será capaz de levantar una serie de contenedores Docker en los cuales se desarrollarán las funcionalidades descritas. Uno de ellos correra un servidor-web a modo de interfaz que manejará las peticiones Websockets entrantes. Posteriormente enviará las peticiones a los servidores websockets conectados a él. En estos servidores realizan los cálculos pertinentes y responden al servidor web dónde su interfaz mostrará los resultados.
+
+Según lo comentado, esta aplicación pretende funcionar como un modelo cliente-servidor, siendo este capaz de atender múltiples peticiones simultaneamente, y en base a la geolocalización del cliente en forma de vector (latitud y longitud) ser capaz de devolver en un área predefinida un cálculo de la pérdidas por propagación respecto a la antena que le sirva la cobertura radio.
+
 ### De la funcionalidad que tendrá el proyecto indicar cuál ya existía cuál es nueva y cuál deja de existir con respecto a lo que ya había
 
+De las funcionalidades comentadas, las encargadas de calcular pérdidas por propagación en base a parámetros RF como pueden ser alturas de las antenas, Potencia, ganancia o la descripciónd el terreno, en base a algoritmos heurísticos y empíricos, son pertenecientes a la aplicación SignalServer descrita.
 
+Esta herramienta de línea de comandos devuelve una nube de puntos en formato bitmap según los parámetros de latitud y longitud (entre otros) que se indiquen. Dado el modelo cliente-servidor que se desea implementar, esta funcionalidad será eliminada de la futura aplicación. Como nueva funcionalidad la herramienta responderá en base a la geolocalización de la petición entrante.
+
+Partimos de un servidor-web, servidores websockets y clientes websockets. Todos ellos han de ser adaptados a la necesidad de la futura aplicación, es decir, necesitamos adaptarla para que trabaje con información de geolocalizacón, latitud y longitud, en forma de vector.
