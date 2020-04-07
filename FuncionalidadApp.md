@@ -33,7 +33,7 @@ Los parámetros de entrada se dividen en:
      * rel Reliability for ITM model 50 to 99 (optional)
      * resample Resample Lidar input to specified resolution in meters (optional)
 </details>
--Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como opciones de entrada. Los archivos .sdf contienen los modelos digitales del terreno (DEM). Estos existen en diferentes resoluciones, STRM, STRM v2 y STRM-3 (versión 2.1). Estas versiones ofrecen resoluciones en 1 arcosegundo (90m aprox) y 3 arcos (30m) pudiéndose obtener del sitioweb [USGS](https://dds.cr.usgs.gov/srtm/).
+-Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como opciones de entrada. Los archivos .sdf contienen los modelos digitales del terreno (DEM). Estos existen en diferentes resoluciones, STRM, STRM v2 y STRM-3 (versión 2.1). Estas versiones ofrecen resoluciones en 1 arcosegundo (90m aprox) y 3 arcos (30m) pudiéndose obtener del sitioweb USGS<https://dds.cr.usgs.gov/srtm/>.
 <details>
   <summary>Ficheros de datos</summary>
  
