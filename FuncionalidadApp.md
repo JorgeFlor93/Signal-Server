@@ -34,10 +34,8 @@ Los parámetros de entrada se dividen en:
 </details>
 Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional).
 
-<details>
-  <summary>
-    &nbsp;2. Ficheros de datos
-  </summary>
+&nbsp;<details>
+  <summary>2. Ficheros de datos<summary>
  
   ##### DATA:
   
