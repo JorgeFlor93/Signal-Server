@@ -9,24 +9,24 @@ SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de 
 Los parámetros de entrada se dividen en características del modelo de telecomunicación y ficheros de datos.
 <details>
   <summary>Parámetros de entrada</summary>
-     -lat Tx Latitude (decimal degrees) -70/+70
-     -lon Tx Longitude (decimal degrees) -180/+180
-     -txh Tx Height (above ground)
-     -rla (Optional) Rx Latitude for PPA (decimal degrees) -70/+70
-     -rlo (Optional) Rx Longitude for PPA (decimal degrees) -180/+180
-     -f Tx Frequency (MHz) 20MHz to 100GHz (LOS after 20GHz)
-     -erp Tx Effective Radiated Power (Watts) including Tx+Rx gain
-     -rxh Rx Height(s) (optional. Default=0.1)
-     -rxg Rx gain dBi (optional for text report)
-     -hp Horizontal Polarisation (default=vertical)
-     -gc Random ground clutter (feet/meters)
-     -m Metric units of measurement
-     -te Terrain code 1-6 (optional)
-     -terdic Terrain dielectric value 2-80 (optional)
-     -tercon Terrain conductivity 0.01-0.0001 (optional)
-     -cl Climate code 1-6 (optional)
-     -rel Reliability for ITM model 50 to 99 (optional)
-     -resample Resample Lidar input to specified resolution in meters (optional)
+     * lat Tx Latitude (decimal degrees) -70/+70
+     * lon Tx Longitude (decimal degrees) -180/+180
+     * txh Tx Height (above ground)
+     * rla (Optional) Rx Latitude for PPA (decimal degrees) -70/+70
+     * rlo (Optional) Rx Longitude for PPA (decimal degrees) -180/+180
+     * f Tx Frequency (MHz) 20MHz to 100GHz (LOS after 20GHz)
+     * erp Tx Effective Radiated Power (Watts) including Tx+Rx gain
+     * rxh Rx Height(s) (optional. Default=0.1)
+     * rxg Rx gain dBi (optional for text report)
+     * hp Horizontal Polarisation (default=vertical)
+     * gc Random ground clutter (feet/meters)
+     * m Metric units of measurement
+     * te Terrain code 1-6 (optional)
+     * terdic Terrain dielectric value 2-80 (optional)
+     * tercon Terrain conductivity 0.01-0.0001 (optional)
+     * cl Climate code 1-6 (optional)
+     * rel Reliability for ITM model 50 to 99 (optional)
+     * resample Resample Lidar input to specified resolution in meters (optional)
 </details>
 
 Su forma de uso es:
