@@ -9,7 +9,7 @@ SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de 
 Los parámetros de entrada se dividen en: 
 
 <details>  
-  <summary>Parámetros del modelo:</summary> 
+  <summary>1. Parámetros del modelo:</summary> 
   ##### INPUT:
   
      * lat Tx Latitude (decimal degrees) -70/+70
@@ -33,10 +33,8 @@ Los parámetros de entrada se dividen en:
 </details>
 Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional).
 
-
 <details>
-  
-  <summary>Ficheros de datos</summary>
+  <summary>2. Ficheros de datos</summary>
  
   ##### DATA:
   
