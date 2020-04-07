@@ -3,7 +3,7 @@
 
 * __Funcionalidad que tiene actualmente la herramienta.__
 
-La aplicación de partida es CLOUDRF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
+La aplicación de partida es Cloud-RF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 
 La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell), y lee los datos de entrada como parámetros y ficheros de datos. Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!). 
 
