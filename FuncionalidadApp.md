@@ -1,4 +1,4 @@
-### Este documento resume el proyecto a dessarrollar.
+### Este documento resume el proyecto a desarrollar.
 ------
 
 * __Funcionalidad actual de la herramienta SignalServer.__
