@@ -46,7 +46,7 @@ Características del modelo de telecomunicación que giran en torno a los parám
      * udt User defined point clutter as decimal co-ordinates: 'latitude,longitude,height'
      * clt MODIS 17-class wide area clutter in ASCII grid format
 </details>
-Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como opciones de entrada. Los archivos .sdf contienen los modelos digitales del terreno (DEM). Estos existen en diferentes resoluciones, STRM, STRM v2 y STRM-3 (versión 2.1). Estas versiones ofrecen resoluciones en 1 arcosegundo (90m aprox) y 3 arcos (30m) pudiéndose obtener del sitioweb [USGS](https://dds.cr.usgs.gov/srtm/).
+Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como opciones de entrada. Los archivos .sdf contienen los modelos digitales del terreno (DEM). Estos existen en diferentes resoluciones, STRM, STRM v2 y STRM-3 (versión 2.1). Estas versiones ofrecen resoluciones en 1 arcosegundo (90m aprox) y 3 arcos (30m). Dichos archivos se pueden obtener en sus diferentes versiones del sitioweb [USGS](https://dds.cr.usgs.gov/srtm/) .
 
 <br/> <details>
   <summary>3. Opciones a la salida</summary>
