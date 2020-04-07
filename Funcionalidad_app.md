@@ -3,7 +3,34 @@
 
 * __Funcionalidad que tiene actualmente la herramienta.__
 
-La aplicación de la cual vamos a partir se trata de CloudRF. 
+La aplicación de partida es CLOUDRF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
+La versión sobre la que vamos a trabajar es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell), y lee los datos de entrada como parámetros y ficheros de datos. Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!). 
+SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
+Los parámetros de entrada se dividen en características del modelo de telecomunicación y ficheros de datos.
+<details>
+  <summary>Parámetros de entrada</summary>
+     -lat Tx Latitude (decimal degrees) -70/+70
+     -lon Tx Longitude (decimal degrees) -180/+180
+     -txh Tx Height (above ground)
+     -rla (Optional) Rx Latitude for PPA (decimal degrees) -70/+70
+     -rlo (Optional) Rx Longitude for PPA (decimal degrees) -180/+180
+     -f Tx Frequency (MHz) 20MHz to 100GHz (LOS after 20GHz)
+     -erp Tx Effective Radiated Power (Watts) including Tx+Rx gain
+     -rxh Rx Height(s) (optional. Default=0.1)
+     -rxg Rx gain dBi (optional for text report)
+     -hp Horizontal Polarisation (default=vertical)
+     -gc Random ground clutter (feet/meters)
+     -m Metric units of measurement
+     -te Terrain code 1-6 (optional)
+     -terdic Terrain dielectric value 2-80 (optional)
+     -tercon Terrain conductivity 0.01-0.0001 (optional)
+     -cl Climate code 1-6 (optional)
+     -rel Reliability for ITM model 50 to 99 (optional)
+     -resample Resample Lidar input to specified resolution in meters (optional)
+</details>
+
+Su forma de uso es:
+`signalserver [data options] [input options] [output options] -o outputfile`
 
 * __Funcionalidad que tendrá cuando finalice el proyecto.__
 
