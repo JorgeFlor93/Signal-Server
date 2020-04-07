@@ -18,7 +18,7 @@ Los parámetros de la herramienta se dividen en:
 <details>  
   <summary>1. Parámetros de entrada:</summary> 
   
-  ##### Input:
+  ###### Input:
   
      -lat Tx Latitude (decimal degrees) -70/+70
      -lon Tx Longitude (decimal degrees) -180/+180
@@ -44,7 +44,7 @@ Características del modelo de telecomunicación que giran en torno a los parám
 <br/> <details>
   <summary>2. Ficheros de datos</summary>
  
-  ##### Data:
+  ###### Data:
   
      -sdf Directory containing SRTM derived .sdf DEM tiles
      -lid ASCII grid tile (LIDAR) with dimensions and resolution defined in header
@@ -58,7 +58,7 @@ Ficheros de datos. Adicionalmente se requiere el uso de programas/scripts como o
 <br/> <details>
   <summary>3. Opciones a la salida</summary>
  
-  ##### Output:
+  ###### Output:
   
      -dbm Plot Rxd signal power instead of field strength
      -rt Rx Threshold (dB / dBm / dBuV/m)
