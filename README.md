@@ -91,8 +91,10 @@ Según lo comentado, esta aplicación pretende funcionar como un modelo cliente-
 
 De las funcionalidades comentadas, las encargadas de calcular pérdidas por propagación en base a parámetros RF como pueden ser alturas de las antenas, potencia, ganancia o descripción del terreno, en base a algoritmos heurísticos y empíricos, son pertenecientes a la aplicación SignalServer descrita. Las usaremosen en el servidor-websocket. 
 
-Deja de existir la funcionalidad de la aplicación como herramienta de línea de comando. Se implementará  un modelo cliente-servidor, el cual responderá en base a la geolocalización de las peticiones de los clientes.
+Deja de existir la funcionalidad de la aplicación como herramienta de línea de comando. Se implementará  un modelo cliente-servidor, el cual responderá en base a la geolocalización de las peticiones de los clientes. Estos interactúan con la aplicación a través de un servidor-web.
 
-Otra nueva funcionalidad es la Dockerización de la herramienta. La herramienta va a ser levantada en varios contenedores.
+También vamos a desechar la funcionalidad de devolver la información en forma de Bitmaps. No queremos representar la información mediante una nube de puntos RGB.
+
+Como nueva funcionalidad está la Dockerización de la herramienta. La herramienta va a ser levantada en varios contenedores.
 
 Partimos de un servidor-web, servidores websockets y clientes websockets. Todos ellos han de ser adaptados a la necesidad de la futura aplicación, es decir, necesita modificación para que trabaje con información de geolocalizacón, latitud y longitud, en forma de vector.
