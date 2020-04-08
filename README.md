@@ -5,7 +5,7 @@
 
 La aplicación de partida es Cloud-RF. Esta es una herramienta OpenSource para el análisis de Propagación de señales de Radio-Frecuencia, pérdidas y características del terreno. Tiene soporte para multitud de estándares de telecomunicación, como VHF, GMS, UMTS, 5G, WI-Fi y Wi-Max entre otros.
 
-La versión rscogida para el proyecto es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell). Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!), en ella podemos encontrar [información](https://cloudrf.com/open%20source) mucho más detallada de las bases de este proyecto.
+La versión escogida para el proyecto es SignalServer. Se trata de una herramienta de línea de comandos o terminal de textos (shell). Dicha versión está fundamentada en la herramienta original SPLAT! (Signal Propagation, Loss, And Terrain analysis tool SPLAT!), en ella podemos encontrar [información](https://cloudrf.com/open%20source) mucho más detallada de las bases de este proyecto.
 
 SignalServer provee datos RF de ingeniería del sitio, es decir, parámetros de entrada, y produce reportes en forma de gráficos y mapas topográficos que presentan trayectorias de linea-de-vista, pérdidas por trayectorias regionales y contornos de intensidad de señal a través de los cuales se puede determinar el área de cobertura esperada de sistemas transmisores o repetidores. 
 
@@ -39,7 +39,7 @@ Los parámetros de la herramienta se dividen en:
      -rel Reliability for ITM model 50 to 99 (optional)
      -resample Resample Lidar input to specified resolution in meters (optional)
 </details>
-Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional). Algunos de los parámetros son obligatorios poara la ejecución apropiada del programa, mientras que otros son opcionales.
+Características del modelo de telecomunicación que giran en torno a los parámetros de transmisión de la antena, distancia, unidades, tipo de entorno y clima (opcional). Algunos de los parámetros son obligatorios para la ejecución apropiada del programa, mientras que otros son opcionales.
 
 <br/> <details>
   <summary>2. Ficheros de datos</summary>
