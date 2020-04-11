@@ -1,5 +1,12 @@
 #### Este documento resume el proyecto a desarrollar
 ------
+### Funcionalidades a lograr
+
+-Dockerización de la aplicación SignalServer.
+-servidor-web, servidores websockets y clientes websockets.
+-modelo Cliente-Servidor:
+  - Mensajes progreso.
+  -Mensajes de datos. Formato JSON.
 
 ### Funcionalidad actual de la herramienta SignalServer
 
