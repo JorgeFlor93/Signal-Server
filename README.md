@@ -2,11 +2,12 @@
 ------
 ### Funcionalidades a lograr
 
--Dockerización de la aplicación SignalServer.
--servidor-web, servidores websockets y clientes websockets.
--modelo Cliente-Servidor:
-  - Mensajes progreso.
-  -Mensajes de datos. Formato JSON.
+1. Dockerización de la aplicación SignalServer.
+2. servidor-web, servidores websockets y clientes websockets.
+3. modelo Cliente-Servidor:
+  1. Mensajes progreso.
+  2. Mensajes de datos. Formato JSON.
+4. Funcionamiento operativo de la aplicación
 
 ### Funcionalidad actual de la herramienta SignalServer
 
