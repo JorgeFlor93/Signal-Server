@@ -7,7 +7,7 @@
 3. modelo Cliente-Servidor:
   1. Mensajes progreso.
   2. Mensajes de datos. Formato JSON.
-4. Funcionamiento operativo de la aplicación
+4. Funcionamiento operativo de la aplicación.
 
 ### Funcionalidad actual de la herramienta SignalServer
 
