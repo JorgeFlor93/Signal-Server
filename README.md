@@ -3,6 +3,7 @@
 ### Funcionalidades a lograr
 
 1. Dockerización de la aplicación SignalServer.
+2. Implementar Websockets.
 2. servidor-web, servidores websockets y clientes websockets.
 3. modelo Cliente-Servidor.
     1. Mensajes progreso.
