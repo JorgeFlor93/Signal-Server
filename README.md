@@ -2,9 +2,9 @@
 ------
 ### Funcionalidades a lograr
 
-1. Dockerización de la aplicación SignalServer.
-2. Implementar Websockets.
-2. servidor-web, servidores websockets y clientes websockets.
+1. Enviar características de una BTS haciendo uso de websockets.
+2. Manipular los datos recogidos y usarlos junto a un algoritmo para devolver el cálculo de la propagación.
+2. Encapsular la información y devolverla al cliente.
 3. modelo Cliente-Servidor.
     1. Mensajes progreso.
     2. Mensajes de datos. Formato JSON.
