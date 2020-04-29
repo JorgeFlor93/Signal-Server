@@ -85,8 +85,6 @@ Los parámetros a la salida establecen el alcance de nuestra cobertura radiada, 
 
 ### Funcionalidad que tendrá cuando finalice el proyecto
 
-Esta aplicación busca ampliar las posibilidades de la herramienta así como un rendimiento más óptimo.
-
 Se plantea inicialmente desarrollar un servidor que administre las peticiones de los clientes y devuelva el cálculo de la propagación en una región específica, haciendo uso de los modelos (hata, ITM, LOS, EC33, VHF/UHF...) descritos.
 
 Se va a desplegar haciendo uso de la herramienta [Docker](https://www.docker.com/why-docker) . Esta API permite cierta flexibilidad en cuanto a arquitecturas y el uso de múltiples lenguajes.
