@@ -1,7 +1,7 @@
 Las clases definidas en la aplicación CloudRF son:
 
-<p>*image-ppm.hh*<br>
-Clase: **image_dispache_table**<br>
+<p>*image-ppm.hh* <br>
+Clase: **image_dispache_table** <br>
 Atributos: <br>
 Métodos: <br>
 init: <br>
