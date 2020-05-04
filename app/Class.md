@@ -1,11 +1,11 @@
-im going to define class here
+Las clases definidas en la aplicación CloudRF son:
 
-*image-ppm.hh*
-Clase: **image_dispache_table**
-Atributos: 
-Métodos:
-init: ...
-add_pixel: ...
-set_pixel: …
+<p>*image-ppm.hh*<br>
+Clase: **image_dispache_table**<br>
+Atributos: <br>
+Métodos: <br>
+init: <br>
+add_pixel: <br>
+set_pixel: <br>
 
-> Existe una interfaz de *image_dispache_table* definida en **image.hh**
+> Existe una interfaz de *image_dispache_table* definida en **image.hh**</p>
