@@ -10,18 +10,18 @@ set_pixel:<br>
 
 > Existe una interfaz de *image_dispache_table* definida en **image.hh**. Es en este fichero donde se crea también una clase estructura *_image_ctx* para manipular e instanciar los métodos de *image-ppm.hh*.
 
-*image.hh*<br>
+###### *image.hh*<br>
 Clase: **image_ctx**<br>
 Atributos:
 width<br>
-height<br>
-model<br>
-format<br>
-initialized<br>
-canvas<br>
-next_pixel<br>
-extension<br>
-dt<br>
+height
+model
+format
+initialized
+canvas
+next_pixel
+extension
+dt
 Métodos:<br>
 init:<br>
 add_pixel:<br>
