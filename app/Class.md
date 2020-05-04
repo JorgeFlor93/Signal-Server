@@ -8,21 +8,17 @@ init:<br>
 add_pixel:<br>
 set_pixel:<br>
 
-> Existe una interfaz de *image_dispache_table* definida en **image.hh**. Es en este fichero donde se crea también una clase estructura *_image_ctx* para manipular e instanciar los métodos de *image-ppm.hh*.
+> Aquí se ha instanciado esta clase y sus respectivos métodos mientras que en **image.hh** sólo se han definido (*image_dispache_table*).
 
 ###### *image.hh*<br>
 Clase: **image_ctx**<br>
-Atributos:
-width<br>
-height
-model
-format
-initialized
-canvas
-next_pixel
-extension
-dt
+Atributos:<br>
+width, height, model, format, initialized, \*canvas,\* next_pixel, \*extension, \*dt<br>
 Métodos:<br>
-init:<br>
-add_pixel:<br>
-set_pixel:<br>
+image_set_format(int format): Cambia el formato por defecto de la imagen.
+int image_init(image_ctx_t \*ctx, const size_t width, const size_t height, const int model, const int format): Inicializa la imagen con una serie de atributos(Debe llamarse primero antes de escribir cualquier dato).
+image_add_pixel, image_set_pixel, image_get_pixel, image_write, image_free: Leen y escriben en un fichero y asignan la información de cada pixel.
+
+> Estos métodos vienen algo explicados en *image.cc*
+
+> Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define esta clase para instanciar y manipular la interfaz ya comentada *image_dispache_table*.
