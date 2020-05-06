@@ -129,3 +129,6 @@ Métodos:<br>
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f,
 			 FILE *outfile);
 > Estos métodos vienen algo definidas en el main.cc
+
+#### Model directory 
+> ALGORITHM
