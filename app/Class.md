@@ -96,13 +96,13 @@ Atributos:<br>
 - erp;
 - radio_climate;
 - int pol;
-- float antenna_pattern[361][1001];
+- float antenna_pattern;
 Métodos:<br>
 
 Clase: **region**<br>
 Atributos:<br>
-- color[128][3];
-- level[128];
+- color;
+- level;
 - levels;
 Métodos:<br>
 > Las clases global-MAIN o global-inputs usane stas clases aquí definidas.
