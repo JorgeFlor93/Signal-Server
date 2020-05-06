@@ -1,6 +1,6 @@
 Las clases definidas en la aplicación CloudRF son:
 
-###### *image-ppm.hh*<br>
+##### *image-ppm.hh*<br>
 Clase: **image_dispache_table_t**<br>
 Atributos:<br>
 Métodos:<br>
@@ -8,7 +8,7 @@ Métodos:<br>
 
 > Aquí se ha instanciado esta clase y sus respectivos métodos mientras que en **image.hh** se definen(*image_dispache_table*).
 
-###### *image.hh*<br>
+##### *image.hh*<br>
 
 Clase: **image_ctx**<br>
 Atributos:<br>
@@ -34,13 +34,14 @@ Métodos:<br>
 - write(image_ctx_t*,FILE*)
 - free(image_ctx_t*)
 > Estas funciones envuelven los métodos de las clase global-image.hh y image_ctx
-###### *inputs.hh*<br>
+
+##### *inputs.hh*<br>
 Clase: **LoadPAT**<br>
 Atributos:<br>
 Métodos:<br>
-<br>
 
-###### *common.h*<br>
+
+##### *common.h*<br>
 Clase: **dem**<br>
 Atributos:<br>
 Métodos:<br>
