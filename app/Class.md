@@ -222,9 +222,11 @@ Clase: **itwom3.0**<br>
 </details>
 <details> 
 <summary>Métodos:</summary><br>
-- point_to_point_ITM
-- point_to_point
-<details> 
+	
+-point_to_point_ITM
+-point_to_point
+
+</details> 
 > Usa common.h
 
 Clase: **los**<br>
