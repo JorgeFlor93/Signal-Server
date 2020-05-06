@@ -2,6 +2,8 @@
 ------
 ### Funcionalidades a lograr
 
+1. Diagramas casos de uso (antes y después)
+2. Diagramas de clases (antes y después)
 1. Enviar características de una BTS haciendo uso de websockets.
 2. Manipular los datos recogidos y usarlos junto a un algoritmo para devolver el cálculo de la propagación.
 2. Encapsular la información y devolverla al cliente.
