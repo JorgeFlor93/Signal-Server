@@ -107,8 +107,8 @@ Atributos:<br>
 Métodos:<br>
 > Las clases global-MAIN o global-inputs usane stas clases aquí definidas.
 
-##### *global-MAIN*<br>
-Clase: **dem**<br>
+##### *main.hh*<br>
+Clase: **global-MAIN**<br>
 Atributos:<br>
 Métodos:<br>
 - int ReduceAngle(double angle);
@@ -132,3 +132,132 @@ Métodos:<br>
 
 #### Model directory 
 > ALGORITHM
+
+Clase: **cost**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- COST231pathLoss(float f, float TxH, float RxH, float d, int mode)
+
+Clase: **ecc33**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- ECC33pathLoss(float f, float TxH, float RxH, float d, int mode);
+
+Clase: **egli**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- EgliPathLoss(float f, float h1, float h2, float d);
+
+
+Clase: **ericsson**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- EricssonpathLoss(float f, float TxH, float RxH, float d, int mode)
+
+Clase: **fspl**<br>
+Atributos:<br>
+- f Freq
+- d Propagation ratio
+- mode
+Métodos:<br>
+- double FSPLpathLoss(float f, float d);
+
+
+Clase: **hata**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- double HATApathLoss(float f, float h_B, float h_M, float d, int mode);
+
+Clase: **itwom3.0**<br>
+<details>
+<summary>Atributos:</summary>
+- pol: 0-Horizontal, 1-Vertical, 2-Circular
+- radio_climate: 1-Equatorial, 2-Continental Subtropical, 3-Maritime Tropical, 4-Desert, 5-Continental Temperate, 6-Maritime Temperate, Over Land, 7-Maritime Temperate, Over Sea.
+- conf, rel: .01 to .99
+- elev[]: [num points - 1], [delta dist(meters)], [height(meters) point 1], ..., [height(meters) point n]
+- clutter_height  	25.2 meters for compatibility with ITU-R P.1546-2.
+- clutter_density 	1.0 for compatibility with ITU-R P.1546-2.
+- delta_h_diff		
+    - optional delta h for beyond line of sight. 90 m. average.
+    - setting to 0.0 will default to use of original internal
+    - use of delta-h for beyond line-of-sight range.
+- mode_var set to 12: or to 1 for FCC ILLR	
+- enc_ncc_clcref: clutter refractivity; 1000 N-units to match ITU-R P.1546-2
+- eno=eno_ns_surfref: atmospheric refractivity at sea level; 301 N-units nominal
+- errnum: 
+    - 0- No Error.
+    - 1- Warning: Some parameters are nearly out of range.
+    - Results should be used with caution.
+    - 2- Note: Default parameters have been substituted for
+    - impossible ones.
+    - 3- Warning: A combination of parameters is out of range.
+    - Results are probably invalid.
+    - Other-  Warning: Some parameters are out of range.
+    - Results are probably invalid.
+</details>
+<details> 
+<summary>Métodos:</summary><br>
+- point_to_point_ITM
+- point_to_point
+<details> 
+> Usa common.h
+
+Clase: **los**<br>
+Atributos:<br>
+Métodos:<br>
+- PlotLOSPath
+- PlotPropPath
+- PlotLOSMap
+- PlotPropagation
+- PlotPath
+
+Clase: **pel**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+Métodos:<br>
+- PlaneEarthLoss(float d, float TxH, float RxH);
+
+Clase: **soil**<br>
+Atributos:<br>
+- f Freq
+- d Propagation ratio
+- t: Terrain permittivity: 1 - 15 (Bad to Good)
+Métodos:<br>
+- Eouble SoilPathLoss(float f, float d, float t);
+
+Clase: **sui**<br>
+Atributos:<br>
+- f Freq
+- TxH Height Tx
+- RxH Height Rx
+- d: Propagation ratio
+- mode (Urbano, Suburbano, rural)
+Métodos:<br>
+- SUIpathLoss(double f, double TxH, double RxH, double d, int mode);
