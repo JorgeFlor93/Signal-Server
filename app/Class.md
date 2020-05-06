@@ -40,17 +40,17 @@ Métodos:<br>
 Clase: **global-inputs**<br>
 Atributos:<br>
 Métodos:<br>
-LoadSDF_SDF(char \*name, int winfiles): Carga en memoria el *name* de un archivo .sdf sin comprimir el cual contiene datos DEM.<br>
-LoadSDF(char \*name, int winfiles): Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar<br>
-LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el.<br>
-LoadSignalColors(struct site xmtr);<br>
-LoadLossColors(struct site xmtr);<br>
-LoadDBMColors(struct site xmtr);<br>
-LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat);<br>
-LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario.<br>
-loadLIDAR(char \*filename, int resample);<br>
-loadClutter(char \*filename, double radius, struct site tx);<br>
-averageHeight(int h, int w, int x, int y);<br>
+- LoadSDF_SDF(char \*name, int winfiles): Carga en memoria el *name* de un archivo .sdf sin comprimir el cual contiene datos DEM.<br>
+- LoadSDF(char \*name, int winfiles): Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar<br>
+- LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el.<br>
+- LoadSignalColors(struct site xmtr);<br>
+- LoadLossColors(struct site xmtr);<br>
+- LoadDBMColors(struct site xmtr);<br>
+- LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat);<br>
+- LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario.<br>
+- loadLIDAR(char \*filename, int resample);<br>
+- loadClutter(char \*filename, double radius, struct site tx);<br>
+- averageHeight(int h, int w, int x, int y);<br>
 > Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
 
 ##### *common.h*<br>
@@ -111,3 +111,21 @@ Métodos:<br>
 Clase: **dem**<br>
 Atributos:<br>
 Métodos:<br>
+- int ReduceAngle(double angle);
+- double LonDiff(double lon1, double lon2);
+- int PutMask(double lat, double lon, int value);
+- int OrMask(double lat, double lon, int value);
+- int GetMask(double lat, double lon);
+- int PutSignal(double lat, double lon, unsigned char signal);
+- unsigned char GetSignal(double lat, double lon);
+- double GetElevation(struct site location);
+- int AddElevation(double lat, double lon, double height, int size);
+- double Distance(struct site site1, struct site site2);
+- double Azimuth(struct site source, struct site destination);
+- double ElevationAngle(struct site source, struct site destination);
+- void ReadPath(struct site source, struct site destination);
+- double ElevationAngle2(struct site source, struct site destination, double er);
+- double ReadBearing(char *input);
+- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f,
+			 FILE *outfile);
+> Estos métodos vienen algo definidas en el main.cc
