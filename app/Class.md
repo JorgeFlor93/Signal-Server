@@ -220,13 +220,13 @@ Clase: **itwom3.0**<br>
     - Other-  Warning: Some parameters are out of range.
     - Results are probably invalid.
 </details>
-<details> 
-<summary>Métodos:</summary><br>
-	
--point_to_point_ITM
--point_to_point
 
+<details> 
+<summary>Métodos:</summary>	
+    -point_to_point_ITM
+    -point_to_point
 </details> 
+
 > Usa common.h
 
 Clase: **los**<br>
