@@ -4,9 +4,12 @@ Las clases definidas en la aplicación CloudRF son:
 Clase: **image_dispache_table_t**<br>
 Atributos:<br>
 Métodos:<br>
-- init, add_pixel, set_pixel: Se inicializa y se crean los pixeles de las imágenes<br>
+- ppm_init
+- ppm_add_pixel 
+- ppm_set_pixel
+- ppm_write
 
-> Aquí se ha instanciado esta clase y sus respectivos métodos mientras que en **image.hh** se definen(*image_dispache_table*).
+> Se inicializa y se crean los pixeles de las imágenes. Aquí se ha instanciado esta clase y sus respectivos métodos mientras que en **image.hh** se definen(*image_dispache_table*).
 
 ##### *image.hh*<br>
 
