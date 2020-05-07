@@ -29,7 +29,7 @@ Métodos:<br>
 > Estos métodos vienen algo explicados en *image.cc*
 > Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define esta clase para instanciar y manipular la interfaz ya comentada *image_dispache_table*.
 
-Clase: **image_dispatch_table**<br>
+Clase: **<<INTERFAZ>>image_dispatch_table**<br>
 Atributos:<br>
 Métodos:<br>
 - init(image_ctx_t*), 
@@ -38,8 +38,10 @@ Métodos:<br>
 - get_pixel(image_ctx_t*,const size_t,const size_t,const uint8_t*,const uint8_t*,const uint8_t*,const uint8_t*)
 - write(image_ctx_t*,FILE*)
 - free(image_ctx_t*)
-> Estas funciones envuelven los métodos de las clase global-image.hh y image_ctx
+> Estas funciones envuelven los métodos de las clase global-image.hh y image_ctx. Estos métodos no están definidos.
 
+> Las anteriores clases realizan la construcción de la imagen bitmap, su formato RGB, resolución, y la guardan en el fichero de salida cuyo nombre proporciona el usuario.
+***
 ##### *inputs.hh*<br>
 Clase: **global-inputs**<br>
 Atributos:<br>
