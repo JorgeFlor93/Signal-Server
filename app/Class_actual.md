@@ -140,6 +140,7 @@ Métodos:<br>
 			 FILE \*outfile);
 > Estos métodos vienen algo definidas en el main.cc
 
+
 Clase: **global-outputs**<br>
 Atributos:<br>
 Métodos:<br>
