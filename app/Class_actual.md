@@ -261,11 +261,12 @@ Métodos:<br>
 - Eouble SoilPathLoss(float f, float d, float t);
 
 Clase: **sui**<br>
-Atributos:<br>
+Atributos:
 - f Freq
 - TxH Height Tx
 - RxH Height Rx
 - d: Propagation ratio
 - mode (Urbano, Suburbano, rural)<br>
+
 Métodos:<br>
 - SUIpathLoss(double f, double TxH, double RxH, double d, int mode);
