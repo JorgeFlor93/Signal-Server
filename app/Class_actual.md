@@ -61,55 +61,60 @@ Métodos:<br>
 
 ##### *common.h*<br>
 Clase: **dem**<br>
-Atributos:<br>
-float min_north;
-- float max_north;
-- float min_west;
-- float max_west;
-- int max_el;
-- int min_el;
-- short \**data;
-- unsigned char \**mask;
-- unsigned char \**signal;
+Atributos:
+float min_north
+- float max_north
+- float min_west
+- float max_west
+- int max_el
+- int min_el
+- short \**data
+- unsigned char \**mask
+- unsigned char \**signal
+
 Métodos:<br>
 
 Clase: **site**<br>
 Atributos:<br>
 - double lat;
-- lon;
-- alt;
-- name;
-- filename;
+- lon
+- alt
+- name
+- filename
+
 Métodos:<br>
 
 Clase: **path**<br>
 Atributos:<br>
-- lat;
-- lon;
-- elevation;
-- distance;
-- length;
+- lat
+- lon
+- elevation
+- distance
+- length
+
 Métodos:<br>
 
 Clase: **LR**<br>
-Atributos:<br>
-- eps_dielect;
-- sgm_conductivity;
-- eno_ns_surfref;
-- frq_mhz;
-- conf;
-- rel;
-- erp;
-- radio_climate;
-- int pol;
-- float antenna_pattern;
+Atributos:
+- eps_dielect
+- sgm_conductivity
+- eno_ns_surfref
+- frq_mhz
+- conf
+- rel
+- erp
+- radio_climate
+- int pol
+- float antenna_pattern
+
 Métodos:<br>
 
 Clase: **region**<br>
-Atributos:<br>
-- color;
-- level;
-- levels;
+Atributos:
+- color
+- level
+- levels
+
 Métodos:<br>
 > Las clases global-MAIN o global-inputs usane stas clases aquí definidas.
 
@@ -245,18 +250,20 @@ Métodos:<br>
 - PlotPath
 
 Clase: **pel**<br>
-Atributos:<br>
+Atributos:
 - f Freq
 - TxH Height Tx
 - RxH Height Rx
+
 Métodos:<br>
 - PlaneEarthLoss(float d, float TxH, float RxH);
 
 Clase: **soil**<br>
-Atributos:<br>
+Atributos:
 - f Freq
 - d Propagation ratio
 - t: Terrain permittivity: 1 - 15 (Bad to Good)
+
 Métodos:<br>
 - Eouble SoilPathLoss(float f, float d, float t);
 
