@@ -138,9 +138,30 @@ Métodos:<br>
 - double ElevationAngle2(struct site source, struct site destination, double er);
 - double ReadBearing(char *input);
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f,
-			 FILE *outfile);
+			 FILE \*outfile);
 > Estos métodos vienen algo definidas en el main.cc
 
+Clase: **global-outputs**<br>
+Atributos:<br>
+Métodos:<br>
+- DoPathLoss(char \*filename, unsigned char geo, unsigned char kml,
+		unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- DoSigStr(char \*filename, unsigned char geo, unsigned char kml,
+	      unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml,
+	      unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- DoLOS(char \*filename, unsigned char geo, unsigned char kml,
+	   unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- PathReport(struct site source, struct site destination, char \*name,
+		char graph_it, int propmodel, int pmenv, double rxGain);	   
+- SeriesData(struct site source, struct site destination, char \*name,
+		unsigned char fresnel_plot, unsigned char normalised)	
+> This function generates a topographic map in Portable Pix Map
+	   (PPM) format based on the signal power level values held in the
+	   signal[][] array.  The image created is rotated counter-clockwise
+	   90 degrees from its representation in dem[][] so that north
+	   points up and east points right in the image generated.
+	   
 #### Model directory 
 > ALGORITHM
 
