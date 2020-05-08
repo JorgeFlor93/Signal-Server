@@ -266,6 +266,6 @@ Atributos:<br>
 - TxH Height Tx
 - RxH Height Rx
 - d: Propagation ratio
-- mode (Urbano, Suburbano, rural)
+- mode (Urbano, Suburbano, rural)<br>
 Métodos:<br>
 - SUIpathLoss(double f, double TxH, double RxH, double d, int mode);
