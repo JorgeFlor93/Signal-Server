@@ -140,7 +140,7 @@ Métodos:<br>
 			 FILE \*outfile);
 > Estos métodos vienen algo definidas en el main.cc
 
-
+##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
 Atributos:<br>
 Métodos:<br>
@@ -162,6 +162,37 @@ Métodos:<br>
 	   90 degrees from its representation in dem[][] so that north
 	   points up and east points right in the image generated.
 	   
+##### *tiles.hh*<br>	   
+Clase: **_tile_t**<br>
+Atributos:<br>
+- union{int cols; int width}
+- union{int rows; int height}
+- union{double xll; double max_west}
+- union{double yll; double min_north}
+- union{double xur; double min_west}
+- union{double yur; double max_north}
+- double cellsize;
+- long long datastart;
+- short	nodata;
+- short max_el;
+- short	min_el;
+- short	\*data;
+- float precise_resolution;
+- float	resolution;
+- double width_deg;
+- double height_deg;
+- int ppdx;
+- int ppdy;
+
+Métodos:<br>
+
+Clase: **global-tile**<br>
+Atributos:<br>
+Métodos:<br>
+- int tile_load_lidar(tile_t*, char *);   
+- int tile_rescale(tile_t \*, float scale); Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8).
+- void tile_destroy(tile_t *);
+
 #### Model directory 
 > ALGORITHM
 
