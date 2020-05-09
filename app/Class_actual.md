@@ -156,7 +156,7 @@ Métodos:<br>
 		char graph_it, int propmodel, int pmenv, double rxGain);	   
 - SeriesData(struct site source, struct site destination, char \*name,
 		unsigned char fresnel_plot, unsigned char normalised)	
-> This function generates a topographic map in Portable Pix Map
+> This functions generates a topographic map in Portable Pix Map
 	   (PPM) format based on the signal power level values held in the
 	   signal[][] array.  The image created is rotated counter-clockwise
 	   90 degrees from its representation in dem[][] so that north
