@@ -153,15 +153,11 @@ Métodos:<br>
 - DoLOS(char \*filename, unsigned char geo, unsigned char kml,
 	   unsigned char ngs, struct site \*xmtr, unsigned char txsites)
 - PathReport(struct site source, struct site destination, char \*name,
-		char graph_it, int propmodel, int pmenv, double rxGain);	   
+		char graph_it, int propmodel, int pmenv, double rxGain) ->  This function writes a PPA Path Report (??). Esta función invoca al correspondiente modelo de propagación.  
 - SeriesData(struct site source, struct site destination, char \*name,
 		unsigned char fresnel_plot, unsigned char normalised)	
-> This functions generates a topographic map in Portable Pix Map
-	   (PPM) format based on the signal power level values held in the
-	   signal[][] array.  The image created is rotated counter-clockwise
-	   90 degrees from its representation in dem[][] so that north
-	   points up and east points right in the image generated.
-	   
+> Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico en formato ppm (Portable Pix Map) basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. Ejemplo de uso: loss = (dem[indx].signal[x0][y0])
+
 ##### *tiles.hh*<br>	   
 Clase: **_tile_t**<br>
 Atributos:<br>
