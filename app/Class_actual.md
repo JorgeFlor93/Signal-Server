@@ -183,6 +183,7 @@ Atributos:<br>
 - double height_deg;
 - int ppdx;
 - int ppdy;
+> Estructura necesaria para manejar el reescalado de las imágenes
 
 Métodos:<br>
 
