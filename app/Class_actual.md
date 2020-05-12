@@ -45,17 +45,17 @@ Métodos:<br>
 Clase: **global-inputs**<br>
 Atributos:<br>
 Métodos:<br>
-- LoadSDF_SDF(char \*name, int winfiles): Carga en memoria el *name* de un archivo .sdf sin comprimir el cual contiene datos DEM.<br>
+- LoadSDF_SDF(char \*name, int winfiles): param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
 - LoadSDF(char \*name, int winfiles): Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar<br>
-- LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el.<br>
-- LoadSignalColors(struct site xmtr);<br>
-- LoadLossColors(struct site xmtr);<br>
-- LoadDBMColors(struct site xmtr);<br>
-- LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat);<br>
+- LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el.
+- LoadSignalColors(struct site xmtr);<br>variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores
+- LoadLossColors(struct site xmtr); Carga valores por defecto en la variable struct region de common.h.
+- LoadDBMColors(struct site xmtr); Carga colores por defecto.
+- LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat); Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada.
 - LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario.<br>
 - loadLIDAR(char \*filename, int resample);<br>
-- loadClutter(char \*filename, double radius, struct site tx);<br>
-- averageHeight(int h, int w, int x, int y);<br>
+- loadClutter(char \*filename, double radius, struct site tx);param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación
+- averageHeight(int h, int w, int x, int y); param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Parece que devuelve la altura media de las elevaciones específicadas por DEM. 
 > Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
 
 ##### *common.h*<br>
