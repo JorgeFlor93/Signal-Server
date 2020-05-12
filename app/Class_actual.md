@@ -159,7 +159,7 @@ Métodos:<br>
 > Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico en formato ppm (Portable Pix Map) basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. Ejemplo de uso: loss = (dem[indx].signal[x0][y0])
 
 ##### *tiles.hh*<br>	   
-Clase: **_tile_t**<br>
+Clase: **tile_t**<br>
 Atributos:<br>
 - union{int cols; int width}
 - union{int rows; int height}
@@ -179,16 +179,13 @@ Atributos:<br>
 - double height_deg;
 - int ppdx;
 - int ppdy;
+Métodos:<br>
+- int tile_load_lidar(tile_t\*, char \*); Primer parámetro es un puntero a la estructura(clase) tile_t, y char* es un puntero para manejar el fichero lidar(open, read, write, close).
+- int tile_rescale(tile_t \*, float scale); Puntero a estructura y el segundo parámetro indica el factor de escalado que aunque sea un float luego se convertirá con size_t y se tratará como un entero
+- void tile_destroy(tile_t \*); Puntero para liberar cualquier información asociada a un cuadro(tile).
+
+> Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8). Esta función es capaz de fusionar valores de píxeles vecinos
 > Estructura necesaria para manejar el reescalado de las imágenes
-
-Métodos:<br>
-
-Clase: **global-tile**<br>
-Atributos:<br>
-Métodos:<br>
-- int tile_load_lidar(tile_t*, char *);   
-- int tile_rescale(tile_t \*, float scale); Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8).
-- void tile_destroy(tile_t *);
 
 #### Model directory 
 > ALGORITHM
