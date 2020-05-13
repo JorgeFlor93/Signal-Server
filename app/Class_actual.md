@@ -51,7 +51,7 @@ Métodos:<br>
 - int LoadSignalColors(struct site xmtr);<br>variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores. Devuelve errno en caso de error.
 - int LoadLossColors(struct site xmtr); Carga valores por defecto en la variable struct region de common.h. 
 - int LoadDBMColors(struct site xmtr); Carga colores por defecto.
-- int LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat); Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada. Almacena la info en un extern char string\[] declarado en common.h
+- int LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat): Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada. Almacena la info en un extern char string\[] declarado en common.h
 - int LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario. errno si error.
 - int loadLIDAR(char \*filename, int resample);
 - int loadClutter(char \*filename, double radius, struct site tx);param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación. Devuelve 0 todo bien, -1 error o errno.
@@ -121,23 +121,22 @@ Métodos:<br>
 Clase: **global-MAIN**<br>
 Atributos:<br>
 Métodos:<br>
-- int ReduceAngle(double angle);
-- double LonDiff(double lon1, double lon2);
-- int PutMask(double lat, double lon, int value);
-- int OrMask(double lat, double lon, int value);
-- int GetMask(double lat, double lon);
-- int PutSignal(double lat, double lon, unsigned char signal);
-- unsigned char GetSignal(double lat, double lon);
-- double GetElevation(struct site location);
-- int AddElevation(double lat, double lon, double height, int size);
-- double Distance(struct site site1, struct site site2);
-- double Azimuth(struct site source, struct site destination);
-- double ElevationAngle(struct site source, struct site destination);
-- void ReadPath(struct site source, struct site destination);
-- double ElevationAngle2(struct site source, struct site destination, double er);
-- double ReadBearing(char *input);
-- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f,
-			 FILE \*outfile);
+- int ReduceAngle(double angle): Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
+- double LonDiff(double lon1, double lon2): Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
+- int PutMask(double lat, double lon, int value):??
+- int OrMask(double lat, double lon, int value): ??
+- int GetMask(double lat, double lon); Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
+- int PutSignal(double lat, double lon, unsigned char signal): Devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada
+- unsigned char GetSignal(double lat, double lon): Devuelve señal PutSignal(...)
+- double GetElevation(struct site location): Obtiene la elevación dem almacenada en struct dem previamente (al cargar los archivos .sdf)
+- int AddElevation(double lat, double lon, double height, int size): user defain terrain
+- double Distance(struct site site1, struct site site2): Devuelve la distancia en millas netre 2 localizaciones
+- double Azimuth(struct site source, struct site destination): Devuelve el Azimuth al destino desde la fuente.
+- double ElevationAngle(struct site source, struct site destination); Devuelve el angulo de elevación al destino visto desde la fuente.
+- void ReadPath(struct site source, struct site destination): Almacena en path struct una secuencia de puntos entre fuente-destino
+- double ElevationAngle2(struct site source, struct site destination, double er): Igual q ElebvationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
+- double ReadBearing(char \*input):??
+- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
 > Estos métodos vienen algo definidas en el main.cc
 
 ##### *outputs.hh*<br>
@@ -150,7 +149,7 @@ Métodos:<br>
 - void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); Línea de visión (Line of sight). 
 - void PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain) ->  This function writes a PPA Path Report (name.txt) to the filesystem(??). Se invoca a gnuplot para generar el fichero de salida indicando el modelo de pérdida LR(ITM) entre fuente-destino. Se le puede indicar tipo de fichero y si no se supone .png. Se le pasa modelo de propagación, submodelo(Conservative, Average, Optimistic), radio_climate(Equatorial, Continental Subtropical, Desert...), Polarización, ganancia recibida. Cálcula el coseno del ángulo de elevación sobre el terreno. Compara ángulos para saber si existen obstrucciones. Carga los parámetros acorde con el modelo de propagación escogido.			 
 - void SeriesData(struct site source, struct site destination, char \*name, unsigned char fresnel_plot, unsigned char normalised); ??	
-> Estas funciones finalmente llaman a la función ADD_PIXEL para añadir color a los pixeles que representan la intensidad de propagación(ADD_PIXEL(image.hh) > image_add_pixel(definida image.cc) > DISPATCH_TABLE(image.cc) > image_dispatch_table_t*(image-ppm.hh) > ppm_add_pixel (finalmente en image-ppm.cc)) declarada en image.hh para ir añadiendo los pixeles que representan la propagación de un fichero .ppm. Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico ppm basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
+> Estas funciones invocan a la función ADD_PIXEL para añadir color a los pixeles que representan la intensidad de propagación(ADD_PIXEL(image.hh) > image_add_pixel(definida image.cc) > DISPATCH_TABLE(image.cc) > image_dispatch_table_t*(image-ppm.hh) > ppm_add_pixel (finalmente en image-ppm.cc)). Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico ppm basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
 
 ##### *tiles.hh*<br>	   
 Clase: **tile_t**<br>
