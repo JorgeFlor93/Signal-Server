@@ -45,17 +45,17 @@ Métodos:<br>
 Clase: **global-inputs**<br>
 Atributos:<br>
 Métodos:<br>
-- LoadSDF_SDF(char \*name, int winfiles): param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
-- LoadSDF(char \*name, int winfiles): Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar<br>
-- LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el.
-- LoadSignalColors(struct site xmtr);<br>variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores
-- LoadLossColors(struct site xmtr); Carga valores por defecto en la variable struct region de common.h.
-- LoadDBMColors(struct site xmtr); Carga colores por defecto.
-- LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat); Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada.
-- LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario.<br>
-- loadLIDAR(char \*filename, int resample);<br>
-- loadClutter(char \*filename, double radius, struct site tx);param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación
-- averageHeight(int h, int w, int x, int y); param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Parece que devuelve la altura media de las elevaciones específicadas por DEM. 
+- int LoadSDF_SDF(char \*name, int winfiles): param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
+- int LoadSDF(char \*name, int winfiles): Primero llama a LoadSDF_SDF, si devuelve -1 continúa si no termina. Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar. Devuelve 0 todo bien, -1 error o errno.
+- int LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el. Devuelve 0 todo bien, -1 error o errno.
+- int LoadSignalColors(struct site xmtr);<br>variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores. Devuelve errno en caso de error.
+- int LoadLossColors(struct site xmtr); Carga valores por defecto en la variable struct region de common.h. 
+- int LoadDBMColors(struct site xmtr); Carga colores por defecto.
+- int LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat); Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada. Almacena la info en un extern char string\[] declarado en common.h
+- int LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario. errno si error.
+- int loadLIDAR(char \*filename, int resample);
+- int loadClutter(char \*filename, double radius, struct site tx);param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación. Devuelve 0 todo bien, -1 error o errno.
+- int averageHeight(int h, int w, int x, int y); param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Devuelve la altura media de las elevaciones específicadas por DEM redondeada a un entero.
 > Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
 
 ##### *common.h*<br>
@@ -144,8 +144,7 @@ Métodos:<br>
 Clase: **global-outputs**<br>
 Atributos:<br>
 Métodos:<br>
-- DoPathLoss(char \*filename, unsigned char geo, unsigned char kml,
-		unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); param1 fichero, ... Finalmen
 - DoSigStr(char \*filename, unsigned char geo, unsigned char kml,
 	      unsigned char ngs, struct site \*xmtr, unsigned char txsites)
 - DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml,
@@ -156,7 +155,7 @@ Métodos:<br>
 		char graph_it, int propmodel, int pmenv, double rxGain) ->  This function writes a PPA Path Report (??). Esta función invoca al correspondiente modelo de propagación.  
 - SeriesData(struct site source, struct site destination, char \*name,
 		unsigned char fresnel_plot, unsigned char normalised)	
-> Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico en formato ppm (Portable Pix Map) basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. Ejemplo de uso: loss = (dem[indx].signal[x0][y0])
+> Estas funciones finalmente llaman a la función ADD_PIXEL (ADD_PIXEL > image_add_pixel > DISPATCH_TABLE > image_dispatch_table_t* > ppm_add_pixel (finalmente en image-ppm.cc))declarada en image.hh para ir añadiendo los pixeles que representan la propagación de un fichero .ppm. Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico en formato ppm (Portable Pix Map) basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
 
 ##### *tiles.hh*<br>	   
 Clase: **tile_t**<br>
@@ -180,8 +179,8 @@ Atributos:<br>
 - int ppdx;
 - int ppdy;
 Métodos:<br>
-- int tile_load_lidar(tile_t\*, char \*); Primer parámetro es un puntero a la estructura(clase) tile_t, y char* es un puntero para manejar el fichero lidar(open, read, write, close).
-- int tile_rescale(tile_t \*, float scale); Puntero a estructura y el segundo parámetro indica el factor de escalado que aunque sea un float luego se convertirá con size_t y se tratará como un entero
+- int tile_load_lidar(tile_t\*, char \*); Primer parámetro es un puntero a la estructura(clase) tile_t, y char* es un puntero para manejar el fichero lidar(open, read, write, close). Almacena en una struct tile_t y devuelve 0 (-1 en caso de error).
+- int tile_rescale(tile_t \*, float scale); Puntero a estructura y el segundo parámetro indica el factor de escalado que aunque sea un float luego se convertirá con size_t y se tratará como un entero. Devuelve -1 en caso de error.
 - void tile_destroy(tile_t \*); Puntero para liberar cualquier información asociada a un cuadro(tile).
 
 > Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8). Esta función es capaz de fusionar valores de píxeles vecinos
