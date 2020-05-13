@@ -144,18 +144,13 @@ Métodos:<br>
 Clase: **global-outputs**<br>
 Atributos:<br>
 Métodos:<br>
-- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); param1 fichero, ... Finalmen
-- DoSigStr(char \*filename, unsigned char geo, unsigned char kml,
-	      unsigned char ngs, struct site \*xmtr, unsigned char txsites)
-- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml,
-	      unsigned char ngs, struct site \*xmtr, unsigned char txsites)
-- DoLOS(char \*filename, unsigned char geo, unsigned char kml,
-	   unsigned char ngs, struct site \*xmtr, unsigned char txsites)
-- PathReport(struct site source, struct site destination, char \*name,
-		char graph_it, int propmodel, int pmenv, double rxGain) ->  This function writes a PPA Path Report (??). Esta función invoca al correspondiente modelo de propagación.  
-- SeriesData(struct site source, struct site destination, char \*name,
-		unsigned char fresnel_plot, unsigned char normalised)	
-> Estas funciones finalmente llaman a la función ADD_PIXEL(ADD_PIXEL > image_add_pixel > DISPATCH_TABLE > image_dispatch_table_t* > ppm_add_pixel (finalmente en image-ppm.cc)) declarada en image.hh para ir añadiendo los pixeles que representan la propagación de un fichero .ppm. Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico en formato ppm (Portable Pix Map) basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
+- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa.
+- int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); return 0 correct or errno. 
+- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); Línea de visión (Line of sight). 
+- void PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain) ->  This function writes a PPA Path Report (name.txt) to the filesystem(??). Se invoca a gnuplot para generar el fichero de salida indicando el modelo de pérdida LR(ITM) entre fuente-destino. Se le puede indicar tipo de fichero y si no se supone .png. Se le pasa modelo de propagación, submodelo(Conservative, Average, Optimistic), radio_climate(Equatorial, Continental Subtropical, Desert...), Polarización, ganancia recibida. Cálcula el coseno del ángulo de elevación sobre el terreno. Compara ángulos para saber si existen obstrucciones. Carga los parámetros acorde con el modelo de propagación escogido.			 
+- void SeriesData(struct site source, struct site destination, char \*name, unsigned char fresnel_plot, unsigned char normalised); ??	
+> Estas funciones finalmente llaman a la función ADD_PIXEL para añadir color a los pixeles que representan la intensidad de propagación(ADD_PIXEL(image.hh) > image_add_pixel(definida image.cc) > DISPATCH_TABLE(image.cc) > image_dispatch_table_t*(image-ppm.hh) > ppm_add_pixel (finalmente en image-ppm.cc)) declarada en image.hh para ir añadiendo los pixeles que representan la propagación de un fichero .ppm. Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico ppm basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
 
 ##### *tiles.hh*<br>	   
 Clase: **tile_t**<br>
