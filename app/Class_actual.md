@@ -135,7 +135,7 @@ Métodos:<br>
 - double ElevationAngle(struct site source, struct site destination); Devuelve el angulo de elevación al destino visto desde la fuente.
 - void ReadPath(struct site source, struct site destination): Almacena en path struct una secuencia de puntos entre fuente-destino
 - double ElevationAngle2(struct site source, struct site destination, double er): Igual q ElebvationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
-- double ReadBearing(char \*input):??
+- double ReadBearing(char \*input): Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
 > Estos métodos vienen algo definidas en el main.cc
 
