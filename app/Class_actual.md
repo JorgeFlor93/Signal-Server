@@ -138,7 +138,7 @@ Métodos:<br>
 - double ReadBearing(char \*input): Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
 > Estos métodos vienen algo definidas en el main.cc
-
+> el main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
 ##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
 Atributos:<br>
