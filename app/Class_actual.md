@@ -70,39 +70,40 @@ float min_north
 - short \**data
 - unsigned char \**mask
 - unsigned char \**signal
+
 Métodos:<br>
 >DEM Digital elevations model. 
 
 Clase: **site**<br>
 Atributos:<br>
 - double lat;
-- lon
-- alt
-- name
-- filename
+- double lon
+- float alt
+- char name
+- char filename
 
 Métodos:<br>
 
 Clase: **path**<br>
 Atributos:<br>
-- lat
-- lon
-- elevation
-- distance
-- length
+- double lat
+- double lon
+- double elevation
+- double distance
+- int length
 
 Métodos:<br>
 
 Clase: **LR**<br>
 Atributos:
-- eps_dielect
-- sgm_conductivity
-- eno_ns_surfref
-- frq_mhz
-- conf
-- rel
-- erp
-- radio_climate
+- double eps_dielect
+- double sgm_conductivity
+- double eno_ns_surfref
+- double frq_mhz
+- double conf
+- double rel
+- double erp
+- int radio_climate
 - int pol
 - float antenna_pattern
 
@@ -110,9 +111,9 @@ Métodos:<br>
 
 Clase: **region**<br>
 Atributos:
-- color
-- level
-- levels
+- unsigned char color
+- int level
+- int levels
 
 Métodos:<br>
 
