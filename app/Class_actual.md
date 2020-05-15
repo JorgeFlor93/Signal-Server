@@ -70,8 +70,8 @@ float min_north
 - short \**data
 - unsigned char \**mask
 - unsigned char \**signal
-
 Métodos:<br>
+>DEM Digital elevations model. 
 
 Clase: **site**<br>
 Atributos:<br>
@@ -115,7 +115,67 @@ Atributos:
 - levels
 
 Métodos:<br>
-> Las clases global-MAIN o global-inputs usane stas clases aquí definidas.
+
+Clase: **global-common**<br>
+Atributos:
+- #define DEG2RAD		1.74532925199e-02
+- #define	EARTHRADIUS	20902230.97
+- #define	METERS_PER_MILE 1609.344
+- #define	METERS_PER_FOOT 0.3048
+- #define	KM_PER_MILE	1.609344
+- #define	FEET_PER_MILE	5280.0
+- #define FOUR_THIRDS	1.3333333333333
+- extern int MAXPAGES;
+- extern int ARRAYSIZE;
+- extern int IPPD;
+- extern double min_north;
+- extern double max_north;
+- extern double min_west;
+- extern double max_west;
+- extern int ippd;
+- extern int MAXRAD;
+- extern int mpi;
+- extern int max_elevation;
+- extern int min_elevation;
+- extern int contour_threshold;
+- extern int loops;
+- extern int jgets;
+- extern int width;
+- extern int height;
+- extern double earthradius;
+- extern double north;
+- extern double east;
+- extern double south;
+- extern double west;
+- extern double max_range;
+- extern double dpp;
+- extern double ppd;
+- extern double yppd;
+- extern double fzone_clearance;
+- extern double clutter;
+- extern double dBm;
+- extern double loss;
+- extern double field_strength;
+- extern \__thread double *elev;
+- extern double westoffset;
+- extern double eastoffset;
+- extern double delta;
+- extern double cropLat;
+- extern double cropLon;
+- extern char string[];
+- extern char sdf_path[];
+- extern char gpsav;
+- extern unsigned char got_elevation_pattern;
+- extern unsigned char got_azimuth_pattern;
+- extern unsigned char metric;
+- extern unsigned char dbm;
+- extern struct dem *dem;
+- extern \__thread struct path path;
+- extern struct LR LR;
+- extern struct region region;
+- extern int debug;
+
+Métodos:<br>
 
 ##### *main.hh*<br>
 Clase: **global-MAIN**<br>
@@ -123,8 +183,8 @@ Atributos:<br>
 Métodos:<br>
 - int ReduceAngle(double angle): Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
 - double LonDiff(double lon1, double lon2): Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
-- int PutMask(double lat, double lon, int value):??
-- int OrMask(double lat, double lon, int value): ??
+- int PutMask(double lat, double lon, int value): Almacena en una variable struct dem[][].mask[][] información áreas de cobertura 
+- int OrMask(double lat, double lon, int value): Igualmente. Estas dos funciones establecen y resetean los bits en la mask basándose en la long y lat del punto. Se recombinan con los datos de la topología cuando se generan los mapas topográficos al invocar la llamada de SignalServer.
 - int GetMask(double lat, double lon); Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
 - int PutSignal(double lat, double lon, unsigned char signal): Devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada
 - unsigned char GetSignal(double lat, double lon): Devuelve señal PutSignal(...)
@@ -134,7 +194,7 @@ Métodos:<br>
 - double Azimuth(struct site source, struct site destination): Devuelve el Azimuth al destino desde la fuente.
 - double ElevationAngle(struct site source, struct site destination); Devuelve el angulo de elevación al destino visto desde la fuente.
 - void ReadPath(struct site source, struct site destination): Almacena en path struct una secuencia de puntos entre fuente-destino
-- double ElevationAngle2(struct site source, struct site destination, double er): Igual q ElebvationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
+- double ElevationAngle2(struct site source, struct site destination, double er): Igual q ElevationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
 - double ReadBearing(char \*input): Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
 > Estos métodos vienen algo definidas en el main.cc
