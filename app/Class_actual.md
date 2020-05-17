@@ -2,13 +2,11 @@ Las clases definidas en la aplicación CloudRF son:
 
 ##### *image-ppm.hh*<br>
 Clase: **image_dispache_table_t**<br>
-Atributos:<br>
 Métodos:<br>
 - ppm_init
 - ppm_add_pixel 
 - ppm_set_pixel
 - ppm_write
-
 > Se inicializa y se crean los pixeles de las imágenes. Aquí se ha instanciado esta clase y sus respectivos métodos mientras que en **image.hh** se definen(*image_dispache_table*).
 
 ##### *image.hh*<br>
@@ -16,12 +14,9 @@ Métodos:<br>
 Clase: **image_ctx**<br>
 Atributos:<br>
 - width, height, model, format, initialized, \*canvas,\* next_pixel, \*extension, \*dt <br>
-
-Métodos:
 > Los atributos de esta clase son usados por las clases *global-image.hh, image_dispatch_table, image_dispache_table_t*.
 
 Clase: **global-image.hh**<br>
-Atributos:<br>
 Métodos:<br>
 - image_set_format(int format): Cambia el formato por defecto de la imagen.<br>
 - int image_init(image_ctx_t \*ctx, const size_t width, const size_t height, const int model, const int format): Inicializa la imagen con una serie de atributos(Debe llamarse primero antes de escribir cualquier dato).<br>
@@ -30,7 +25,6 @@ Métodos:<br>
 > Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define esta clase para instanciar y manipular la interfaz ya comentada *image_dispache_table*.
 
 Clase: **\<INTERFAZ\>image_dispatch_table**<br>
-Atributos:<br>
 Métodos:<br>
 - init(image_ctx_t*), 
 - add_pixel(image_ctx_t*,const uint8_t,const uint8_t,const uint8_t,const uint8_t)
@@ -43,7 +37,6 @@ Métodos:<br>
 
 ##### *inputs.hh*<br>
 Clase: **global-inputs**<br>
-Atributos:<br>
 Métodos:<br>
 - int LoadSDF_SDF(char \*name, int winfiles): param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
 - int LoadSDF(char \*name, int winfiles): Primero llama a LoadSDF_SDF, si devuelve -1 continúa si no termina. Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar. Devuelve 0 todo bien, -1 error o errno.
@@ -71,7 +64,6 @@ float min_north
 - unsigned char \**mask
 - unsigned char \**signal
 
-Métodos:<br>
 >DEM Digital elevations model. 
 
 Clase: **site**<br>
@@ -82,8 +74,6 @@ Atributos:<br>
 - char name
 - char filename
 
-Métodos:<br>
-
 Clase: **path**<br>
 Atributos:<br>
 - double lat
@@ -91,8 +81,6 @@ Atributos:<br>
 - double elevation
 - double distance
 - int length
-
-Métodos:<br>
 
 Clase: **LR**<br>
 Atributos:
@@ -107,15 +95,11 @@ Atributos:
 - int pol
 - float antenna_pattern
 
-Métodos:<br>
-
 Clase: **region**<br>
 Atributos:
 - unsigned char color
 - int level
 - int levels
-
-Métodos:<br>
 
 Clase: **global-common**<br>
 Atributos:
@@ -176,11 +160,9 @@ Atributos:
 - extern struct region region;
 - extern int debug;
 
-Métodos:<br>
-
 ##### *main.hh*<br>
 Clase: **global-MAIN**<br>
-Atributos:<br>
+
 Métodos:<br>
 - int ReduceAngle(double angle): Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
 - double LonDiff(double lon1, double lon2): Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
@@ -202,7 +184,6 @@ Métodos:<br>
 > el main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
 ##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
-Atributos:<br>
 Métodos:<br>
 - void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa.
 - int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); return 0 correct or errno. 
