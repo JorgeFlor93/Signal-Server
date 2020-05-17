@@ -192,10 +192,11 @@ Métodos:<br>
 > el main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
 ##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
+¿Cuál es la diferencia en cada uno de estos métodos?
 Métodos:<br>
-- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa.
+- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); En esta función se almacenan las pérdidas (loss) en las estructuras dem.param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
 - int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); return 0 correct or errno. 
-- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites): Cargamos la intensidad de señal en cada punto según lo almacenado en la clase struct dem (dBm=dem[].signal[][]).
 - void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); Línea de visión (Line of sight). 
 - void **PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain)** -> Es en esta función donde se pasa el modelo de propagación, y parámetros como el submodelo(Conservative, Average, Optimistic), radio_climate(Equatorial, Continental Subtropical, Desert...), Polarización, ganancia recibida. Cálcula el coseno del ángulo de elevación sobre el terreno. Compara ángulos para saber si existen obstrucciones. Se le puede indicar tipo de fichero y si no se supone .png. Los modelos de propagación retornan un double con las pérdidas. 
 - void SeriesData(struct site source, struct site destination, char \*name, unsigned char fresnel_plot, unsigned char normalised); ??	
