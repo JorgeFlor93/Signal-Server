@@ -190,11 +190,17 @@ Métodos:<br>
 - void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
 > Estos métodos vienen algo definidas en el main.cc
 > el main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
+
 ##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
-¿Cuál es la diferencia en cada uno de estos métodos?
+¿Cuál es la diferencia en cada uno de estos métodos? IMPORTANTE. a priori todos devuelven lo mismo pero de una forma particular
 Métodos:<br>
-- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); En esta función se almacenan las pérdidas (loss) en las estructuras dem.param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
+- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
+
+        This function generates a topographic map in Portable Pix Map
+	   (PPM) format based on the content of flags held in the mask[][]
+	   array (only). Param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
+       
 - int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); return 0 correct or errno. 
 - DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites): Cargamos la intensidad de señal en cada punto según lo almacenado en la clase struct dem (dBm=dem[].signal[][]).
 - void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); Línea de visión (Line of sight). 
