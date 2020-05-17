@@ -223,7 +223,7 @@ Métodos:<br>
 	   
 - void **PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain)**
 
-		Es en esta función donde se pasa el modelo de propagación, y parámetros como el submodelo(Conservative, Average,              Optimistic), radio_climate(Equatorial, Continental Subtropical, Desert...), Polarización, ganancia recibida.
+		Es en esta función donde se pasa el modelo de propagación, y parámetros como el 						submodelo,radio_climate,Polarización, ganancia recibida. 
 		Cálcula el coseno del ángulo de elevación sobre el terreno. 
 		Compara ángulos para saber si existen obstrucciones. Se le puede indicar tipo de fichero y si no se supone .png. Los modelos de propagación retornan un double con las pérdidas. 
 		
