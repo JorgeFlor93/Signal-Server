@@ -13,7 +13,15 @@ Métodos:<br>
 
 Clase: **image_ctx**<br>
 Atributos:<br>
-- width, height, model, format, initialized, \*canvas,\* next_pixel, \*extension, \*dt <br>
+- width,
+- height, 
+- model, 
+- format, 
+- initialized, 
+- \*canvas,
+- \*next_pixel, 
+- \*extension, 
+- *dt <br>
 > Los atributos de esta clase son usados por las clases *global-image.hh, image_dispatch_table, image_dispache_table_t*.
 
 Clase: **global-image.hh**<br>
