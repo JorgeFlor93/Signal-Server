@@ -351,6 +351,7 @@ Estructura necesaria para manejar el reescalado de las imágenes
 
 Clase: **cost**<br>
 Complejidad: MEDIA
+
 Atributos:<br>
 
 	- f Freq
@@ -364,7 +365,8 @@ Métodos:<br>
 	- COST231pathLoss(float f, float TxH, float RxH, float d, int mode)
 
 Clase: **ecc33**<br>
-COMPLEJIDAD: MEDIA
+Complejidad: MEDIA
+
 Atributos:<br>
 
 	- f Freq
@@ -379,6 +381,7 @@ Métodos:<br>
 
 Clase: **egli**<br>
 Complejidad: FACIL
+
 Atributos:<br>
 
 	- f Freq
@@ -394,6 +397,7 @@ Métodos:<br>
 
 Clase: **ericsson**<br>
 Complejidad: MEDIA
+
 Atributos:<br>
 - f Freq
 - TxH Height Tx
@@ -406,6 +410,7 @@ Métodos:<br>
 
 Clase: **fspl**<br>
 Complejidad: FACIl
+
 Atributos:<br>
 
 	- f Freq
@@ -418,6 +423,8 @@ Métodos:<br>
 
 
 Clase: **hata**<br>
+Complejidad: MEDIA
+
 Atributos:<br>
 
 	- f Freq
@@ -432,6 +439,7 @@ Métodos:<br>
 
 Clase: **itwom3.0**<br>
 Complejidad: ALTA
+
 Atributos:
 
 	- pol: 0-Horizontal, 1-Vertical, 2-Circular
@@ -465,6 +473,7 @@ Métodos:
 
 Clase: **los**<br>
 Line Of Sight. No es un modelo como tal. Son una serie de funciones que calculan la existencia de obstáculos en el trayecto y determina que puntos distantes de la antena transmisora están en visión direct, libre de obstáculos(LINE-OF-SIGHT).
+
 Atributos:<br>
 Métodos:<br>
 
@@ -476,6 +485,7 @@ Métodos:<br>
 
 Clase: **pel**<br>
 Complejidad: FACIL
+
 Atributos:
 
 	- f Freq
@@ -488,6 +498,7 @@ Métodos:<br>
 
 Clase: **soil**<br>
 Complejidad: FACIL
+
 Atributos:
 
 	- f Freq
@@ -500,6 +511,7 @@ Métodos:<br>
 
 Clase: **sui**<br>
 Complejidad: MEDIA
+
 Atributos:
 
 	- f Freq
