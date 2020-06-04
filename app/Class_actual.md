@@ -100,224 +100,278 @@ Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos 
 Clase: **dem**<br>
 Atributos:
 float min_north
-- float max_north
-- float min_west
-- float max_west
-- int max_el
-- int min_el
-- short \**data
-- unsigned char \**mask
-- unsigned char \**signal
 
->DEM Digital elevations model. 
+	- float max_north
+	- float min_west
+	- float max_west
+	- int max_el
+	- int min_el
+	- short \**data
+	- unsigned char \**mask
+	- unsigned char \**signal
+DEM Digital elevations model. 
 
 Clase: **site**<br>
 Atributos:<br>
-- double lat;
-- double lon
-- float alt
-- char name
-- char filename
+
+	- double lat;
+	- double lon
+	- float alt
+	- char name
+	- char filename
 
 Clase: **path**<br>
 Atributos:<br>
-- double lat
-- double lon
-- double elevation
-- double distance
-- int length
+
+	- double lat
+	- double lon
+	- double elevation
+	- double distance
+	- int length
 
 Clase: **LR**<br>
 Atributos:
-- double eps_dielect
-- double sgm_conductivity
-- double eno_ns_surfref
-- double frq_mhz
-- double conf
-- double rel
-- double erp
-- int radio_climate
-- int pol
-- float antenna_pattern
 
-Clase: **region**<br>
+	- double eps_dielect
+	- double sgm_conductivity
+	- double eno_ns_surfref
+	- double frq_mhz
+	- double conf
+	- double rel
+	- double erp
+	- int radio_climate
+	- int pol
+	- float antenna_pattern
+
+Clase: **region**
 Atributos:
-- unsigned char color
-- int level
-- int levels
+
+	- unsigned char color
+	- int level
+	- int levels
 
 Clase: **global-common**<br>
 Atributos:
-- #define DEG2RAD		1.74532925199e-02
-- #define	EARTHRADIUS	20902230.97
-- #define	METERS_PER_MILE 1609.344
-- #define	METERS_PER_FOOT 0.3048
-- #define	KM_PER_MILE	1.609344
-- #define	FEET_PER_MILE	5280.0
-- #define FOUR_THIRDS	1.3333333333333
-- extern int MAXPAGES;
-- extern int ARRAYSIZE;
-- extern int IPPD;
-- extern double min_north;
-- extern double max_north;
-- extern double min_west;
-- extern double max_west;
-- extern int ippd;
-- extern int MAXRAD;
-- extern int mpi;
-- extern int max_elevation;
-- extern int min_elevation;
-- extern int contour_threshold;
-- extern int loops;
-- extern int jgets;
-- extern int width;
-- extern int height;
-- extern double earthradius;
-- extern double north;
-- extern double east;
-- extern double south;
-- extern double west;
-- extern double max_range;
-- extern double dpp;
-- extern double ppd;
-- extern double yppd;
-- extern double fzone_clearance;
-- extern double clutter;
-- extern double dBm;
-- extern double loss;
-- extern double field_strength;
-- extern \__thread double *elev;
-- extern double westoffset;
-- extern double eastoffset;
-- extern double delta;
-- extern double cropLat;
-- extern double cropLon;
-- extern char string[];
-- extern char sdf_path[];
-- extern char gpsav;
-- extern unsigned char got_elevation_pattern;
-- extern unsigned char got_azimuth_pattern;
-- extern unsigned char metric;
-- extern unsigned char dbm;
-- extern struct dem *dem;
-- extern \__thread struct path path;
-- extern struct LR LR;
-- extern struct region region;
-- extern int debug;
 
-##### *main.hh*<br>
+	- #define DEG2RAD		1.74532925199e-02
+	- #define	EARTHRADIUS	20902230.97
+	- #define	METERS_PER_MILE 1609.344
+	- #define	METERS_PER_FOOT 0.3048
+	- #define	KM_PER_MILE	1.609344
+	- #define	FEET_PER_MILE	5280.0
+	- #define FOUR_THIRDS	1.3333333333333
+	- extern int MAXPAGES;
+	- extern int ARRAYSIZE;
+	- extern int IPPD;
+	- extern double min_north;
+	- extern double max_north;
+	- extern double min_west;
+	- extern double max_west;
+	- extern int ippd;
+	- extern int MAXRAD;
+	- extern int mpi;
+	- extern int max_elevation;
+	- extern int min_elevation;
+	- extern int contour_threshold;
+	- extern int loops;
+	- extern int jgets;
+	- extern int width;
+	- extern int height;
+	- extern double earthradius;
+	- extern double north;
+	- extern double east;
+	- extern double south;
+	- extern double west;
+	- extern double max_range;
+	- extern double dpp;
+	- extern double ppd;
+	- extern double yppd;
+	- extern double fzone_clearance;
+	- extern double clutter;
+	- extern double dBm;
+	- extern double loss;
+	- extern double field_strength;
+	- extern \__thread double *elev;
+	- extern double westoffset;
+	- extern double eastoffset;
+	- extern double delta;
+	- extern double cropLat;
+	- extern double cropLon;
+	- extern char string[];
+	- extern char sdf_path[];
+	- extern char gpsav;
+	- extern unsigned char got_elevation_pattern;
+	- extern unsigned char got_azimuth_pattern;
+	- extern unsigned char metric;
+	- extern unsigned char dbm;
+	- extern struct dem *dem;
+	- extern \__thread struct path path;
+	- extern struct LR LR;
+	- extern struct region region;
+	- extern int debug;
+
+##### *main.hh*
+
 Clase: **global-MAIN**<br>
-
 Métodos:<br>
-- int ReduceAngle(double angle): Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
-- double LonDiff(double lon1, double lon2): Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
-- int PutMask(double lat, double lon, int value): Almacena en una variable struct dem[][].mask[][] información áreas de cobertura 
-- int OrMask(double lat, double lon, int value): Igualmente. Estas dos funciones establecen y resetean los bits en la mask basándose en la long y lat del punto. Se recombinan con los datos de la topología cuando se generan los mapas topográficos al invocar la llamada de SignalServer.
-- int GetMask(double lat, double lon); Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
-- int PutSignal(double lat, double lon, unsigned char signal): Devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada
-- unsigned char GetSignal(double lat, double lon): Devuelve señal PutSignal(...)
-- double GetElevation(struct site location): Obtiene la elevación dem almacenada en struct dem previamente (al cargar los archivos .sdf)
-- int AddElevation(double lat, double lon, double height, int size): user defain terrain
-- double Distance(struct site site1, struct site site2): Devuelve la distancia en millas netre 2 localizaciones
-- double Azimuth(struct site source, struct site destination): Devuelve el Azimuth al destino desde la fuente.
-- double ElevationAngle(struct site source, struct site destination); Devuelve el angulo de elevación al destino visto desde la fuente.
-- void ReadPath(struct site source, struct site destination): Almacena en path struct una secuencia de puntos entre fuente-destino
-- double ElevationAngle2(struct site source, struct site destination, double er): Igual q ElevationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
-- double ReadBearing(char \*input): Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
-- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile): Va calculando los cosenos en el path para ir analizando las obstrucciones.
-> Estos métodos vienen algo definidas en el main.cc
-> el main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
+
+	- int ReduceAngle(double angle)
+Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
+	
+	- double LonDiff(double lon1, double lon2) 
+Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
+
+	- int PutMask(double lat, double lon, int value)
+Almacena en una variable struct dem[][].mask[][] información áreas de cobertura 
+
+	- int OrMask(double lat, double lon, int value)
+Igualmente. Estas dos funciones establecen y resetean los bits en la mask basándose en la long y lat del punto. Se recombinan con los datos de la topología cuando se generan los mapas topográficos al invocar la llamada de SignalServer.
+
+	- int GetMask(double lat, double lon)
+Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
+
+	- int PutSignal(double lat, double lon, unsigned char signal)
+Devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada
+
+	- unsigned char GetSignal(double lat, double lon)
+Devuelve señal PutSignal(...)
+
+	- double GetElevation(struct site location)
+Obtiene la elevación dem almacenada en struct dem previamente (al cargar los archivos .sdf)
+
+	- int AddElevation(double lat, double lon, double height, int size)
+user defain terrain
+
+	- double Distance(struct site site1, struct site site2)
+Devuelve la distancia en millas netre 2 localizaciones
+
+	- double Azimuth(struct site source, struct site destination)
+Devuelve el Azimuth al destino desde la fuente.
+
+	- double ElevationAngle(struct site source, struct site destination)
+Devuelve el angulo de elevación al destino visto desde la fuente.
+
+	- void ReadPath(struct site source, struct site destination)
+Almacena en path struct una secuencia de puntos entre fuente-destino
+
+	- double ElevationAngle2(struct site source, struct site destination, double er)
+Igual q ElevationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
+
+	- double ReadBearing(char \*input)
+Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
+
+	- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile)
+Va calculando los cosenos en el path para ir analizando las obstrucciones.
+
+Estos métodos vienen algo definidas en el main.cc
+
+El main contiene funciones free dem(), free site(), para liberar estas estructuras y no sobrecargar espacio en memoria. También del tipo alloc para reservar.
 
 ##### *outputs.hh*<br>
 Clase: **global-outputs**<br>
+
 ¿Cuál es la diferencia en cada uno de estos métodos? IMPORTANTE. a priori todos devuelven lo mismo pero de una forma particular<br>
+
 Métodos:<br>
-- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
 
-           This function generates a topographic map in Portable Pix Map
-	   (PPM) format based on the content of flags held in the mask[][]
-	   array (only). 
-	   Param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
+	- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites)
+This function generates a topographic map in Portable Pix Map
+(PPM) format based on the content of flags held in the mask[][]
+array (only). 
+Param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
        
-- int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
+	- int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
 		
-	   This function generates a topographic map in Portable Pix Map
-	   (PPM) format based on the signal strength values held in the
-	   signal[][] arrayreturn 0 correct or errno. 
-- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites):
-	
-	   This function generates a topographic map in Portable Pix Map
-	   (PPM) format based on the signal power level values held in the
-	   signal[][] array.
-	   Cargamos la intensidad de señal en cada punto según lo almacenado en la clase struct dem (dBm=dem[].signal[][]).
-	   
-- void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
+This function generates a topographic map in Portable Pix Map
+(PPM) format based on the signal strength values held in the
+signal[][] arrayreturn 0 correct or errno. 
 
-           This function generates a topographic map in Portable Pix Map
-	   (PPM) format based on the signal power level values held in the
-	   signal[][] array.
-	   Línea de visión (Line of sight). 
-	   
-- void **PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain)**
+	- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites):
 
-		Es en esta función donde se pasa el modelo de propagación y parámetros como el submodelo, radio_climate, Polarización, ganancia recibida. 
-		Cálcula el coseno del ángulo de elevación sobre el terreno. 
-		Compara ángulos para saber si existen obstrucciones. Se le puede indicar tipo de fichero y si no se supone .png. Los modelos de propagación retornan un double con las pérdidas. 
+This function generates a topographic map in Portable Pix Map
+(PPM) format based on the signal power level values held in the
+signal[][] array.
+Cargamos la intensidad de señal en cada punto según lo almacenado en la clase struct dem (dBm=dem[].signal[][]).
+	   
+	- void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
+
+This function generates a topographic map in Portable Pix Map
+(PPM) format based on the signal power level values held in the
+signal[][] array.
+Línea de visión (Line of sight). 
+	   
+	- void **PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain)**
+
+Es en esta función donde se pasa el modelo de propagación y parámetros como el submodelo, radio_climate, Polarización, ganancia recibida. 
+Cálcula el coseno del ángulo de elevación sobre el terreno. 
+Compara ángulos para saber si existen obstrucciones. Se le puede indicar tipo de fichero y si no se supone .png. Los modelos de propagación retornan un double con las pérdidas. 
 		
-- void SeriesData(struct site source, struct site destination, char \*name, unsigned char fresnel_plot, unsigned char normalised); ??	
-> Estas funciones invocan a la función ADD_PIXEL para añadir color a los pixeles que representan la intensidad de propagación(ADD_PIXEL(image.hh) > image_add_pixel(definida image.cc) > DISPATCH_TABLE(image.cc) > image_dispatch_table_t*(image-ppm.hh) > ppm_add_pixel (finalmente en image-ppm.cc)). Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico ppm basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
+	- void SeriesData(struct site source, struct site destination, char \*name, unsigned char fresnel_plot, unsigned char normalised)
+Estas funciones invocan a la función ADD_PIXEL para añadir color a los pixeles que representan la intensidad de propagación(ADD_PIXEL(image.hh) > image_add_pixel(definida image.cc) > DISPATCH_TABLE(image.cc) > image_dispatch_table_t*(image-ppm.hh) > ppm_add_pixel (finalmente en image-ppm.cc)). Generan un color para la propagación en un punto. Estas funciones generan un mapa topográfico ppm basado en el nivel de intensidad de la señal almacenado en el array signal[][]. La imagen generada se rota 90º en el sentido de las aguajs del reloj desde su representación dem[][] de tal forma que el norte apunte hacia arriba y el este hacia la derecha. Tanto dem[][] como signal[][] son atributos del fichero common.h. 
 
 ##### *tiles.hh*<br>	   
 Clase: **tile_t**<br>
 Atributos:<br>
-- union{int cols; int width}
-- union{int rows; int height}
-- union{double xll; double max_west}
-- union{double yll; double min_north}
-- union{double xur; double min_west}
-- union{double yur; double max_north}
-- double cellsize;
-- long long datastart;
-- short	nodata;
-- short max_el;
-- short	min_el;
-- short	\*data;
-- float precise_resolution;
-- float	resolution;
-- double width_deg;
-- double height_deg;
-- int ppdx;
-- int ppdy;
-Métodos:<br>
-- int tile_load_lidar(tile_t\*, char \*); Primer parámetro es un puntero a la estructura(clase) tile_t, y char* es un puntero para manejar el fichero lidar(open, read, write, close). Almacena en una struct tile_t y devuelve 0 (-1 en caso de error).
-- int tile_rescale(tile_t \*, float scale); Puntero a estructura y el segundo parámetro indica el factor de escalado que aunque sea un float luego se convertirá con size_t y se tratará como un entero. Devuelve -1 en caso de error.
-- void tile_destroy(tile_t \*); Puntero para liberar cualquier información asociada a un cuadro(tile).
 
-> Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8). Esta función es capaz de fusionar valores de píxeles vecinos
-> Estructura necesaria para manejar el reescalado de las imágenes
+	- union{int cols; int width}
+	- union{int rows; int height}
+	- union{double xll; double max_west}
+	- union{double yll; double min_north}
+	- union{double xur; double min_west}
+	- union{double yur; double max_north}
+	- double cellsize;
+	- long long datastart;
+	- short	nodata;
+	- short max_el;
+	- short	min_el;
+	- short	\*data;
+	- float precise_resolution;
+	- float	resolution;
+	- double width_deg;
+	- double height_deg;
+	- int ppdx;
+	- int ppdy;
+Métodos:<br>
+
+	- int tile_load_lidar(tile_t\*, char \*)
+Primer parámetro es un puntero a la estructura(clase) tile_t, y char* es un puntero para manejar el fichero lidar(open, read, write, close). Almacena en una struct tile_t y devuelve 0 (-1 en caso de error).
+
+	- int tile_rescale(tile_t \*, float scale)
+Puntero a estructura y el segundo parámetro indica el factor de escalado que aunque sea un float luego se convertirá con size_t y se tratará como un entero. Devuelve -1 en caso de error.
+
+	- void tile_destroy(tile_t \*)
+Puntero para liberar cualquier información asociada a un cuadro(tile).
+
+Se usa principalmente para reescalar la imagen LIDAR ya que esta solo opta a una resolución de 2m. La resolución aumenta en múltiplos de 2(4, 6, 8). Esta función es capaz de fusionar valores de píxeles vecinos
+
+Estructura necesaria para manejar el reescalado de las imágenes
 
 #### Model directory 
 > ALGORITHM
 
 Clase: **cost**<br>
 Atributos:<br>
-- f Freq
-- TxH Height Tx
-- RxH Height Rx
-- d: Propagation ratio
-- mode (Urbano, Suburbano, rural)
+
+	- f Freq
+	- TxH Height Tx
+	- RxH Height Rx
+	- d: Propagation ratio
+	- mode (Urbano, Suburbano, rural)
 Métodos:<br>
-- COST231pathLoss(float f, float TxH, float RxH, float d, int mode)
+
+	- COST231pathLoss(float f, float TxH, float RxH, float d, int mode)
 
 Clase: **ecc33**<br>
 Atributos:<br>
-- f Freq
-- TxH Height Tx
-- RxH Height Rx
-- d: Propagation ratio
-- mode (Urbano, Suburbano, rural)
+
+	- f Freq
+	- TxH Height Tx
+	- RxH Height Rx
+	- d: Propagation ratio
+	- mode (Urbano, Suburbano, rural)
 Métodos:<br>
-- ECC33pathLoss(float f, float TxH, float RxH, float d, int mode);
+
+	- ECC33pathLoss(float f, float TxH, float RxH, float d, int mode);
 
 Clase: **egli**<br>
 Atributos:<br>
