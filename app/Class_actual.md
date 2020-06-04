@@ -15,16 +15,18 @@ Se inicializa y se crean los pixeles de las imágenes. Aquí se ha instanciado e
 
 Clase: **image_ctx**<br>
 Atributos:<br>
-- width,
-- height, 
-- model, 
-- format, 
-- initialized, 
-- \*canvas,
-- \*next_pixel, 
-- \*extension, 
-- *dt <br>
-> Los atributos de esta clase son usados por las clases *global-image.hh, image_dispatch_table, image_dispache_table_t*.
+
+	- width,
+	- height, 
+	- model, 
+	- format, 
+	- initialized, 
+	- \*canvas,
+	- \*next_pixel, 
+	- \*extension, 
+	- *dt <br>
+
+Los atributos de esta clase son usados por las clases *global-image.hh, image_dispatch_table, image_dispache_table_t*.
 
 Clase: **global-image.hh**<br>
 Métodos:<br>
@@ -47,30 +49,52 @@ Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define 
 
 Clase: **\<INTERFAZ\>image_dispatch_table**<br>
 Métodos:<br>
-- init(image_ctx_t*), 
-- add_pixel(image_ctx_t*,const uint8_t,const uint8_t,const uint8_t,const uint8_t)
-- set_pixel(image_ctx_t*,const size_t,const size_t,const uint8_t,const uint8_t,const uint8_t,const uint8_t)
-- get_pixel(image_ctx_t*,const size_t,const size_t,const uint8_t*,const uint8_t*,const uint8_t*,const uint8_t*)
-- write(image_ctx_t*,FILE*)
-- free(image_ctx_t*)
-> Estas funciones envuelven los métodos de las clase global-image.hh y image_ctx. Estos métodos no están definidos.
-> Las anteriores clases realizan la construcción de la imagen bitmap, su formato RGB, resolución, y la guardan en el fichero de salida cuyo nombre proporciona el usuario.
+
+	- init(image_ctx_t*), 
+	- add_pixel(image_ctx_t*,const uint8_t,const uint8_t,const uint8_t,const uint8_t)
+	- set_pixel(image_ctx_t*,const size_t,const size_t,const uint8_t,const uint8_t,const uint8_t,const uint8_t)
+	- get_pixel(image_ctx_t*,const size_t,const size_t,const uint8_t*,const uint8_t*,const uint8_t*,const uint8_t*)
+	- write(image_ctx_t*,FILE*)
+	- free(image_ctx_t*)
+	
+Estas funciones envuelven los métodos de las clase global-image.hh y image_ctx. Estos métodos no están definidos.
+Las anteriores clases realizan la construcción de la imagen bitmap, su formato RGB, resolución, y la guardan en el fichero de salida cuyo nombre proporciona el usuario.
 
 ##### *inputs.hh*<br>
 Clase: **global-inputs**<br>
 Métodos:<br>
-- int LoadSDF_SDF(char \*name, int winfiles): param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
-- int LoadSDF(char \*name, int winfiles): Primero llama a LoadSDF_SDF, si devuelve -1 continúa si no termina. Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar. Devuelve 0 todo bien, -1 error o errno.
-- int LoadPAT(char \*az_filename, char \*el_filename): Lee PAT ficheros .az y .el. Devuelve 0 todo bien, -1 error o errno.
-- int LoadSignalColors(struct site xmtr);<br>variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores. Devuelve errno en caso de error.
-- int LoadLossColors(struct site xmtr); Carga valores por defecto en la variable struct region de common.h. 
-- int LoadDBMColors(struct site xmtr); Carga colores por defecto.
-- int LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat): Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada. Almacena la info en un extern char string\[] declarado en common.h
-- int LoadUDT(char \*filename): User-Define Terrain, carga un fichero de DEM especificado por el usuario. errno si error.
-- int loadLIDAR(char \*filename, int resample);
-- int loadClutter(char \*filename, double radius, struct site tx);param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación. Devuelve 0 todo bien, -1 error o errno.
-- int averageHeight(int h, int w, int x, int y); param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Devuelve la altura media de las elevaciones específicadas por DEM redondeada a un entero.
-> Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
+
+	- int LoadSDF_SDF(char \*name, int winfiles) 
+param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
+	
+	- int LoadSDF(char \*name, int winfiles) 
+Primero llama a LoadSDF_SDF, si devuelve -1 continúa si no termina. Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar. Devuelve 0 todo bien, -1 error o errno.
+
+	- int LoadPAT(char \*az_filename, char \*el_filename) 
+Lee PAT ficheros .az y .el. Devuelve 0 todo bien, -1 error o errno.
+	
+	- int LoadSignalColors(struct site xmtr)
+variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores. Devuelve errno en caso de error.
+
+	- int LoadLossColors(struct site xmtr)
+Carga valores por defecto en la variable struct region de common.h. 
+
+	- int LoadDBMColors(struct site xmtr)
+Carga colores por defecto.
+	
+	- int LoadTopoData(int max_lon, int min_lon, int max_lat, int min_lat)
+Esta función carga los archivos SDF necesarios para cubrir los límites de la región especificada. Almacena la info en un extern char string\[] declarado en common.h
+
+	- int LoadUDT(char \*filename)
+User-Define Terrain, carga un fichero de DEM especificado por el usuario. errno si error.
+
+	- int loadLIDAR(char \*filename, int resample);
+	- int loadClutter(char \*filename, double radius, struct site tx)
+param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación. Devuelve 0 todo bien, -1 error o errno.
+	
+	- int averageHeight(int h, int w, int x, int y)
+param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Devuelve la altura media de las elevaciones específicadas por DEM redondeada a un entero.
+Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
 
 ##### *common.h*<br>
 Clase: **dem**<br>
