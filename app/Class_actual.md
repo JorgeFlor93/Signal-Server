@@ -36,9 +36,11 @@ Inicializa la imagen con una serie de atributos(Debe llamarse primero antes de e
 
 > image_add_pixel, image_set_pixel, image_get_pixel, image_write, image_free
 
-Leen y escriben en un fichero. Estas funciones simplemente envuelven los métodos definidos en **image_dispache_table_t**.<br>
-> Estos métodos vienen algo explicados en *image.cc*
-> Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define esta clase para instanciar y manipular la interfaz ya comentada *image_dispache_table*.
+Leen y escriben en un fichero. Estas funciones simplemente envuelven los métodos definidos en **image_dispache_table_t**
+
+Estos métodos vienen algo explicados en *image.cc*
+
+Manejo de la salida de la imagen. Permite mejores formatos de salida. Se define esta clase para instanciar y manipular la interfaz ya comentada *image_dispache_table*.
 
 Clase: **\<INTERFAZ\>image_dispatch_table**<br>
 Métodos:<br>
