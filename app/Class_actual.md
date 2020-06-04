@@ -99,8 +99,8 @@ Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos 
 ##### *common.h*<br>
 Clase: **dem**<br>
 Atributos:
-float min_north
 
+	-float min_north
 	- float max_north
 	- float min_west
 	- float max_west
@@ -360,7 +360,8 @@ Atributos:<br>
 	- d: Propagation ratio
 	- mode (Urbano, Suburbano, rural)
 Frecuencia 150 - 2000 MHz
-Métodos:<br>
+
+Métodos:
 
 	- COST231pathLoss(float f, float TxH, float RxH, float d, int mode)
 
@@ -375,7 +376,8 @@ Atributos:<br>
 	- d: Propagation ratio
 	- mode (Urbano, Suburbano, rural)
 Trabaja en GHz. Diferencia entre ciudades con grandes edificios(rascacielos) y ciudades medianas (Europeas).
-Métodos:<br>
+
+Métodos:
 
 	- ECC33pathLoss(float f, float TxH, float RxH, float d, int mode);
 
@@ -390,7 +392,8 @@ Atributos:<br>
 	- d: Propagation ratio
 	- mode (Urbano, Suburbano, rural)
 Frecuencias bajas max 1GHz. No tiene en cuentra otro tipos de pérdidas subyacentes.
-Métodos:<br>
+
+Métodos:
 
 	- EgliPathLoss(float f, float h1, float h2, float d);
 
@@ -404,7 +407,8 @@ Atributos:<br>
 - RxH Height Rx
 - d: Propagation ratio
 - mode (Urbano, Suburbano, rural)
-Métodos:<br>
+
+Métodos:
 
 	- EricssonpathLoss(float f, float TxH, float RxH, float d, int mode)
 
@@ -417,7 +421,8 @@ Atributos:<br>
 	- d Propagation ratio
 	- mode
 Admite cualquier frecuencia y distancia
-Métodos:<br>
+
+Métodos:
 	
 	- double FSPLpathLoss(float f, float d);
 
@@ -492,7 +497,7 @@ Atributos:
 	- TxH Height Tx
 	- RxH Height Rx
 
-Métodos:<br>
+Métodos:
 
 	- PlaneEarthLoss(float d, float TxH, float RxH);
 
@@ -505,7 +510,7 @@ Atributos:
 	- d Propagation ratio
 	- t: Terrain permittivity: 1 - 15 (Bad to Good)
 
-Métodos:<br>
+Métodos:
 
 	- Eouble SoilPathLoss(float f, float d, float t);
 
@@ -520,6 +525,6 @@ Atributos:
 	- d: Propagation ratio
 	- mode (Urbano, Suburbano, rural)<br>
 
-Métodos:<br>
+Métodos:
 
 	- SUIpathLoss(double f, double TxH, double RxH, double d, int mode);
