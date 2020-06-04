@@ -443,7 +443,7 @@ Métodos:<br>
 	- double HATApathLoss(float f, float h_B, float h_M, float d, int mode);
 
 Clase: **itwom3.0**<br>
-Complejidad: ALTA
+No se trata de un algoritmo de cálculod e propagación como tal. Define una serie de funciones 
 
 Atributos:
 
