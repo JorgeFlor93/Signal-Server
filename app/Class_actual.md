@@ -412,8 +412,8 @@ Métodos:
 
 	- EricssonpathLoss(float f, float TxH, float RxH, float d, int mode)
 
-Clase: **fspl**<br>
-Complejidad: FACIl
+Clase: **fspl** (free space path loss)<br>
+Complejidad: FACIL
 
 Atributos:<br>
 
