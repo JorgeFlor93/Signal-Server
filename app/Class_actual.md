@@ -21,9 +21,9 @@ Atributos:<br>
 	- model, 
 	- format, 
 	- initialized, 
-	- \*canvas,
-	- \*next_pixel, 
-	- \*extension, 
+	- *canvas,
+	- *next_pixel, 
+	- *extension, 
 	- *dt <br>
 
 Los atributos de esta clase son usados por las clases *global-image.hh, image_dispatch_table, image_dispache_table_t*.
