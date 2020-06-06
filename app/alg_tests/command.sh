@@ -4,7 +4,7 @@ mkdir 50km
 PM=1
 FRQ=450
 
-#signalserver command res = 1200, no HD
+#signalserver command res = 1200, not HD
 
 while [ $PM -le 11 ]
 do
