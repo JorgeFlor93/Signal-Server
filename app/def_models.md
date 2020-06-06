@@ -95,6 +95,7 @@ Métodos:<br>
 	- double HATApathLoss(float f, float h_B, float h_M, float d, int mode);
 
 Clase: **itwom3.0**<br>
+Complejidad: ALTA
 Se trata de una corrección y mejora del Longley-Rice Model (ITM). Funciona en 2 modos: Area prediction mode, usa predicciones del terreno para el cálculo luego es mas ligero en la computación y ejecución. El segundo modo es point to point mode que recibe como entrada los puntos de elevaciones exactos entre transmisor y receptor.  ITWOM contiene cálculos más precisos sobre las zonas line of sight.
 
 Atributos:
