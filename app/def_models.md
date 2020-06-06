@@ -66,7 +66,7 @@ Métodos:
 
 Clase: **fspl** (free space path loss)<br>
 Complejidad: FACIL
-
+Es un modelo muy simple que solamente tiene en cuenta distancia y frecuencia y no asume elevaciones en el terreno. Se puede mejorar. Se puede mejorar con la función knife edge diffraction (ked) que añade alturas de antenas y elevaciones.
 Atributos:<br>
 
 	- f Freq
@@ -81,7 +81,7 @@ Métodos:
 
 Clase: **hata**<br>
 Complejidad: MEDIA
-
+Se usa principalmente para entornos urbanos con edificios altos. El modelo asume que el tx es más alto que la altura media de los tejados. 150 to 1500 MHzz con altura mínima para la antena transmisora de 30m. Costhata model es una extensión de este modelo. 
 Atributos:<br>
 
 	- f Freq
@@ -89,7 +89,7 @@ Atributos:<br>
 	- RxH Height Rx
 	- d: Propagation ratio
 	- mode (Urbano, Suburbano, rural)
-150 to 1500 MHzz. Costhata model es una extensión de este modelo.
+	
 Métodos:<br>
 
 	- double HATApathLoss(float f, float h_B, float h_M, float d, int mode);
@@ -130,8 +130,8 @@ Métodos:
         -point_to_point
 
 Clase: **los**<br>
-Line Of Sight. No es un modelo como tal, si una una medida de distancia. Son una serie de funciones que calculan la existencia de obstáculos en el trayecto y determina que puntos distantes de la antena transmisora están en visión direct, libre de obstáculos.
-
+Complejidad: FACIL
+Line of Sight. Devuelve un si/no. Se extiende hasta los 100GHz.Utiliza datos del terreno y altura de las antenas.
 Atributos:<br>
 Métodos:<br>
 
