@@ -95,7 +95,7 @@ Métodos:<br>
 	- double HATApathLoss(float f, float h_B, float h_M, float d, int mode);
 
 Clase: **itwom3.0**<br>
-No se trata de un algoritmo de cálculod e propagación como tal. Define una serie de funciones 
+Se trata de una corrección y mejora del Longley-Rice Model (ITM). Funciona en 2 modos: Area prediction mode, usa predicciones del terreno para el cálculo luego es mas ligero en la computación y ejecución. El segundo modo es point to point mode que recibe como entrada los puntos de elevaciones exactos entre transmisor y receptor.  ITWOM contiene cálculos más precisos sobre las zonas line of sight.
 
 Atributos:
 
@@ -129,7 +129,7 @@ Métodos:
         -point_to_point
 
 Clase: **los**<br>
-Line Of Sight. No es un modelo como tal. Son una serie de funciones que calculan la existencia de obstáculos en el trayecto y determina que puntos distantes de la antena transmisora están en visión direct, libre de obstáculos(LINE-OF-SIGHT).
+Line Of Sight. No es un modelo como tal, si una una medida de distancia. Son una serie de funciones que calculan la existencia de obstáculos en el trayecto y determina que puntos distantes de la antena transmisora están en visión direct, libre de obstáculos.
 
 Atributos:<br>
 Métodos:<br>
