@@ -219,6 +219,11 @@ Métodos:<br>
 Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
 	
 	- double LonDiff(double lon1, double lon2) 
+	This function returns the short path longitudinal
+	difference between longitude1 and longitude2
+	as an angle between -180.0 and +180.0 degrees.
+	If lon1 is west of lon2, the result is positive.
+	If lon1 is east of lon2, the result is negative.
 Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
 
 	- int PutMask(double lat, double lon, int value)
