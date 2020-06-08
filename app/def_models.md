@@ -131,7 +131,8 @@ Métodos:
 
 Clase: **los**<br>
 Complejidad: FACIL
-Line of Sight. Devuelve un si/no. Se extiende hasta los 100GHz.Utiliza datos del terreno y altura de las antenas.
+Line of Sight. Devuelve un si/no. Se extiende hasta los 100GHz. Utiliza datos del terreno y altura de las antenas.
+Más que un modelo es una clase que pueden implementar los demás modelos para ir determinando los puntos que tienen visión directa respecto al tx. Estos puntos se guardan en un array mask[][] y aparecerán en verde en el .ppm
 Atributos:<br>
 Métodos:<br>
 
