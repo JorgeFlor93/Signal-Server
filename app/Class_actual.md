@@ -288,34 +288,30 @@ Clase: **global-outputs**<br>
 Métodos:<br>
 
 	- void DoPathLoss(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites)
-This function generates a topographic map in Portable Pix Map
-(PPM) format based on the content of flags held in the mask[][]
-array (only). 
+		This function generates a topographic map in Portable Pix Map
+		(PPM) format based on the content of flags held in the mask[][]
+		array (only). 
 Param1 fichero, param2 3 y 4 ??, param5 struct site almacena datos del lugar, param6 no se usa. 
        
 	- int DoSigStr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
-		
-This function generates a topographic map in Portable Pix Map
-(PPM) format based on the signal strength values held in the
-signal[][] arrayreturn 0 correct or errno. 
+	This function generates a topographic map in Portable Pix Map
+	(PPM) format based on the signal strength values held in the
+	signal[][] arrayreturn 0 correct or errno. 
 
 	- DoRxdPwr(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites):
-
-This function generates a topographic map in Portable Pix Map
-(PPM) format based on the signal power level values held in the
-signal[][] array.
+	This function generates a topographic map in Portable Pix Map
+	(PPM) format based on the signal power level values held in the
+	signal[][] array.
 Cargamos la intensidad de señal en cada punto según lo almacenado en la clase struct dem (dBm=dem[].signal[][]).
 	   
 	- void DoLOS(char \*filename, unsigned char geo, unsigned char kml, unsigned char ngs, struct site \*xmtr, unsigned char txsites); 
-
-This function generates a topographic map in Portable Pix Map
-(PPM) format based on the signal power level values held in the
-signal[][] array.
-Línea de visión (Line of sight). 
+	This function generates a topographic map in Portable Pix Map
+	(PPM) format based on the signal power level values held in the
+	signal[][] array. 
 	   
 	- void **PathReport(struct site source, struct site destination, char \*name, char graph_it, int propmodel, int pmenv, double rxGain)**
 
-Es en esta función donde se pasa el modelo de propagación y parámetros como el submodelo, radio_climate, Polarización, ganancia recibida. 
+PathReport: Es en esta función donde se pasa el modelo de propagación y parámetros como el submodelo, radio_climate, Polarización, ganancia recibida. 
 Cálcula el coseno del ángulo de elevación sobre el terreno. 
 Compara ángulos para saber si existen obstrucciones. Se le puede indicar tipo de fichero y si no se supone .png. Los modelos de propagación retornan un double con las pérdidas. 
 		
