@@ -1,9 +1,11 @@
 #### Model directory 
 > ALGORITHM
 
-Clase: **cost**<br>
+Clase: **COST231**<br>
 Complejidad: MEDIA
 
+
+Este modelo extensión de Hata model extiende la frecuencia de trabajo hasta 2000MHz. Para áreas urbanas con  GSM-1800.
 Atributos:<br>
 
 	- f Freq
@@ -66,6 +68,7 @@ Métodos:
 
 Clase: **fspl** (free space path loss)<br>
 Complejidad: FACIL
+
 Es un modelo muy simple que solamente tiene en cuenta distancia y frecuencia y no asume elevaciones en el terreno. Se puede mejorar. Se puede mejorar con la función knife edge diffraction (ked) que añade alturas de antenas y elevaciones.
 Atributos:<br>
 
@@ -81,6 +84,7 @@ Métodos:
 
 Clase: **hata**<br>
 Complejidad: MEDIA
+
 Se usa principalmente para entornos urbanos con edificios altos. El modelo asume que el tx es más alto que la altura media de los tejados. 150 to 1500 MHzz con altura mínima para la antena transmisora de 30m. Costhata model es una extensión de este modelo. 
 Atributos:<br>
 
@@ -96,6 +100,7 @@ Métodos:<br>
 
 Clase: **itwom3.0**<br>
 Complejidad: ALTA
+
 Se trata de una corrección y mejora del Longley-Rice Model (ITM). Funciona en 2 modos: Area prediction mode, usa predicciones del terreno para el cálculo luego es mas ligero en la computación y ejecución. El segundo modo es point to point mode que recibe como entrada los puntos de elevaciones exactos entre transmisor y receptor.  ITWOM contiene cálculos más precisos sobre las zonas line of sight.
 
 Atributos:
@@ -131,6 +136,7 @@ Métodos:
 
 Clase: **los**<br>
 Complejidad: FACIL
+
 Line of Sight. Devuelve un si/no. Se extiende hasta los 100GHz. Utiliza datos del terreno y altura de las antenas.
 Más que un modelo es una clase que pueden implementar los demás modelos para ir determinando los puntos que tienen visión directa respecto al tx. Estos puntos se guardan en un array mask[][] y aparecerán en verde en el PPM.
 Atributos:<br>
