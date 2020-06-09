@@ -183,6 +183,8 @@ Métodos:
 Clase: **sui**<br>
 Complejidad: MEDIA
 
+Stanford University Interim
+
 Atributos:
 
 	- f Freq
