@@ -6,6 +6,8 @@ Complejidad: MEDIA
 
 
 Este modelo extensión de Hata model extiende la frecuencia de trabajo hasta 2000MHz. Para áreas urbanas con  GSM-1800.
+
+	𝑃𝐿𝑑𝑏=46.33+33.9log𝑓−13.82log(h𝑏)−𝑎(h𝑚)+[44.9−6.55log(h𝑏)]log⁡(𝑑)
 Atributos:<br>
 
 	- f Freq
@@ -22,6 +24,7 @@ Métodos:
 Clase: **ecc33**<br>
 Complejidad: MEDIA
 
+Electronic Communication Committee (ECC). También se trata de una extrapolación del Okumura Hata model para ser usado para frecuencias superiores a 3GHz .
 Atributos:<br>
 
 	- f Freq
@@ -69,13 +72,16 @@ Métodos:
 Clase: **fspl** (free space path loss)<br>
 Complejidad: FACIL
 
-Es un modelo muy simple que solamente tiene en cuenta distancia y frecuencia y no asume elevaciones en el terreno. Se puede mejorar. Se puede mejorar con la función knife edge diffraction (ked) que añade alturas de antenas y elevaciones.
+Es un modelo muy simple que solamente tiene en cuenta distancia y frecuencia y no asume elevaciones en el terreno. Se puede mejorar. Se puede mejorar con la función knife edge diffraction (ked) que añade alturas de antenas y elevaciones.	
+	
+	𝑃𝐿𝑑𝑏=32.44+20log𝑑+20log⁡(𝑓)
+Puede verse afectada por la diferencia entre la ganancia de la antena transmisora y receptora. 𝐺𝑡−𝐺𝑟
 Atributos:<br>
 
 	- f Freq
 	- d Propagation ratio
 	- mode
-Admite cualquier frecuencia y distancia
+Admite cualquier frecuencia y distancia.
 
 Métodos:
 	
@@ -85,7 +91,7 @@ Métodos:
 Clase: **hata**<br>
 Complejidad: MEDIA
 
-Se usa principalmente para entornos urbanos con edificios altos. El modelo asume que el tx es más alto que la altura media de los tejados. 150 to 1500 MHzz con altura mínima para la antena transmisora de 30m. Costhata model es una extensión de este modelo. 
+Se usa principalmente para entornos urbanos con edificios altos. Generalmente para una transmisión Ant_tx-Mobile station. El modelo asume que el tx es más alto que la altura media de los tejados. 150 to 1500 MHzz con altura mínima para la antena transmisora de 30m a 1000m y distancia hasta 100km. Costhata model es una extensión de este modelo. 
 Atributos:<br>
 
 	- f Freq
