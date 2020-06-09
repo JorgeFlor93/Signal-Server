@@ -213,42 +213,50 @@ Atributos:
 ##### *main.hh*
 
 Clase: **global-MAIN**<br>
+
+Se van analizandoa los parámetros de entrada, se detectan errores y se asignan las correspondencias.
+
 Métodos:<br>
 
 	- int ReduceAngle(double angle)
 Devuelve un argumento normalizado para un ángulo entero entre 0 y 180 grados.
 	
 	- double LonDiff(double lon1, double lon2) 
-	This function returns the short path longitudinal
-	difference between longitude1 and longitude2
-	as an angle between -180.0 and +180.0 degrees.
-	If lon1 is west of lon2, the result is positive.
-	If lon1 is east of lon2, the result is negative.
+		/*This function returns the short path longitudinal
+		difference between longitude1 and longitude2
+		as an angle between -180.0 and +180.0 degrees.
+		If lon1 is west of lon2, the result is positive.
+		If lon1 is east of lon2, the result is negative.*/
 Devuelve la diferencia longitudinal entre 2 longitudes como un ángulo entre -180º y 180º
 
 	- int PutMask(double lat, double lon, int value)
-Almacena en una variable struct dem[][].mask[][] información áreas de cobertura 
-
 	- int OrMask(double lat, double lon, int value)
-Igualmente. Estas dos funciones establecen y resetean los bits en la mask basándose en la long y lat del punto. Se recombinan con los datos de la topología cuando se generan los mapas topográficos al invocar la llamada de SignalServer.
-
 	- int GetMask(double lat, double lon)
-Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
+Almacena en una variable struct dem[][].mask[][] información áreas de cobertura, en el tercer parámeretro: *int value*.
+Estas dos funciones establecen y resetean los bits en la mask basándose en la long y lat del punto. Se recombinan con los datos de la topología cuando se generan los mapas topográficos al invocar la llamada de SignalServer. Devuelve la máscara de bits basada en lat y lon calculada en OrMask(...).
 
 	- int PutSignal(double lat, double lon, unsigned char signal)
-Devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada
-
 	- unsigned char GetSignal(double lat, double lon)
-Devuelve señal PutSignal(...)
+PutSignal escribe un valor de señal entre 0-255 (que representa el valor RGB que dentrá el punto en concreto en el ppm). El tercer parámetro *unsigned char signal* almacena dicho valor en dem[indx].signal[x][y].
+GetSignal devuelve el valor de intensidad de señal en un punto(dem[].signal[][]) especificado en las parámetros de entrada.
+
 
 	- double GetElevation(struct site location)
-Obtiene la elevación dem almacenada en struct dem previamente (al cargar los archivos .sdf)
+Devuelve la elevación DEM almacenada en struct dem previamente (al cargar los archivos .sdf)
 
 	- int AddElevation(double lat, double lon, double height, int size)
+		/* This function adds a user-defined terrain feature
+		   (in meters AGL) to the digital elevation model data
+		   in memory.  Does nothing and returns 0 for locations
+		   not found in memory. */
+
 user defain terrain
 
+	- double dist(double lat1, double lon1, double lat2, double lon2)
+Mejora de la HAVERSINE FORMULA
+
 	- double Distance(struct site site1, struct site site2)
-Devuelve la distancia en millas netre 2 localizaciones
+Devuelve la distancia en millas entre 2 localizaciones en la misma esfera (HAVERSINE FORMULA)
 
 	- double Azimuth(struct site source, struct site destination)
 Devuelve el Azimuth al destino desde la fuente.
@@ -260,13 +268,13 @@ Devuelve el angulo de elevación al destino visto desde la fuente.
 Almacena en path struct una secuencia de puntos entre fuente-destino
 
 	- double ElevationAngle2(struct site source, struct site destination, double er)
-Igual q ElevationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo
+Igual q ElevationAngle() sólo q esta vez si hay un obstacula en la ruta, el ángulo es fuente-primer_obstáculo. *er* representa el Radiod e la tierra (earth radius)
 
 	- double ReadBearing(char \*input)
-Esta función recibe una entrada númera en forma de string  y devuelve su ángulo equivalente en grados como un número decimal. La entrada puede estar en formato decimal o en forma grado minutos segundos (70º 18' 45")
+Esta función recibe una entrada númera en forma de string(40.1463 o 40 08 23  en formato grado, minuto segundo)  y devuelve su ángulo equivalente en grados como un número decimal.
 
 	- void ObstructionAnalysis(struct site xmtr, struct site rcvr, double f, FILE \*outfile)
-Va calculando los cosenos en el path para ir analizando las obstrucciones.
+A cada punto entre tx y rx va calculando los cosenos en el path para ir analizando las obstrucciones.
 
 Estos métodos vienen algo definidas en el main.cc
 
