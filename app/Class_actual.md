@@ -65,19 +65,25 @@ Clase: **global-inputs**<br>
 Métodos:<br>
 
 	- int LoadSDF_SDF(char \*name, int winfiles) 
-param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem de common.h los Elevation data, maximum and minimum elevations, and quadrangle limits.
+		   Here X lines of DEM will be read until IPPD is reached.
+		   Each .sdf tile contains 1200x1200 = 1.44M 'points'
+		   Each point is sampled for 1200 resolution!
+param1 archivo, param2 no se define. Se lee un fichero .sdf con información DEM y se almacenan en la primera struct dem disponible. Elevation data, maximum and minimum elevations, and quadrangle limits.
+Aquí se guardan en las variables globales de la clase common.h los máximos  y mínimos.
 	
 	- int LoadSDF(char \*name, int winfiles) 
 Primero llama a LoadSDF_SDF, si devuelve -1 continúa si no termina. Carga un .sdf comprimido. Si no es posible se supondrá la BTS y su propagación a nivel del mar. Devuelve 0 todo bien, -1 error o errno.
 
 	- int LoadPAT(char \*az_filename, char \*el_filename) 
-Lee PAT ficheros .az y .el. Devuelve 0 todo bien, -1 error o errno.
+		Processes antenna pattern
+Se llama en el main, cuando se lee el parámetro -o. 
+Lee ficheros azimuth y elevations. Devuelve 0 todo bien, -1 error o errno.
 	
 	- int LoadSignalColors(struct site xmtr)
 variable struct site de common.h la cual contiene entre otros el filename de ahí q no necesite pasarlo, ya lo tiene almacenado de alguna función anterior. Carga unos valores por defecto de los colores. Devuelve errno en caso de error.
 
 	- int LoadLossColors(struct site xmtr)
-Carga valores por defecto en la variable struct region de common.h. 
+Carga valores de la variable struct region de common.h. 
 
 	- int LoadDBMColors(struct site xmtr)
 Carga colores por defecto.
@@ -93,7 +99,8 @@ User-Define Terrain, carga un fichero de DEM especificado por el usuario. errno 
 param1 fichero, param2  radio para indicar el límite, param 3 struct de common.h con información del lugar de propagación. Devuelve 0 todo bien, -1 error o errno.
 	
 	- int averageHeight(int h, int w, int x, int y)
-param, altura, ancho y 2 enteros. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Devuelve la altura media de las elevaciones específicadas por DEM redondeada a un entero.
+param, altura, ancho y 2 enteros que definen las posiciones. Usa la estructura dem(máximos y mínimos de los ejes cardinales) de common.h. Devuelve la altura media de las elevaciones en torno a al punto especificado por los enteros y se devuelve redondeada.
+
 Estos métodos funcionan como herrramientas/scripts. Se ayudan de los atributos definidos en clases de diferentes ficheros: *common.h, main.hh, tiles.hh*.
 
 ##### *common.h*<br>
