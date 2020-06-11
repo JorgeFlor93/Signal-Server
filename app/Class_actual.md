@@ -59,6 +59,8 @@ Atributos:
 DEM Digital elevations model. 
 
 Clase: **site**<br>
+Almacena las coordenadas de la antena transmisora.
+
 Atributos:<br>
 
 	- double lat;
@@ -68,6 +70,7 @@ Atributos:<br>
 	- char filename
 
 Clase: **path**<br>
+Aparece en las funciones de cálculo y copia de elevaciones, clutter, Azimuth.
 Atributos:<br>
 
 	- double lat
@@ -77,6 +80,7 @@ Atributos:<br>
 	- int length
 
 Clase: **LR**<br>
+Almacena atributos, parámetros de entrada.
 Atributos:
 
 	- double eps_dielect
@@ -98,6 +102,7 @@ Atributos:
 	- int levels
 
 Clase: **global-common**<br>
+Conjunto de atributos usados en la mayoría de clases para almacenar todo tipo de información y para manejar las anteriores clases definidas en este archivo.
 Atributos:
 
 	- #define DEG2RAD		1.74532925199e-02
@@ -161,7 +166,7 @@ Atributos:
 
 Clase: **global-MAIN**<br>
 
-Se van analizandoa los parámetros de entrada, se detectan errores y se asignan las correspondencias.
+Se van analizando los parámetros de entrada, se detectan errores y se asignan las correspondencias.
 
 Métodos:<br>
 
