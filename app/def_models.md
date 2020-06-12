@@ -1,9 +1,38 @@
 #### Model directory 
+
+Las especificaciones y los test que incorporan la aplicación ss definen las siguientes unidades para cada parámetro:
+
+	-Frequency MHz
+	-Distance km
+	-Effective Radiated Power Watts
+	-lat Tx Latitude decimal degrees -70/+70
+        -lon Tx Longitude decimal degrees -180/+180
+	-rla  Rx Latitude for PPA (decimal degrees) -70/+70
+        -rlo  Rx Longitude for PPA (decimal degrees)
+	-txh Tx Height (above ground) Meters
+	-m Metric units of measurement, if -m set:
+		altitudeLR /= METERS_PER_FOOT;	/* 10ft * 0.3 = 3.3m */
+		max_range /= KM_PER_MILE;	/* 10 / 1.6 = 7.5 */
+		altitude /= METERS_PER_FOOT;
+		tx_site[0].alt /= METERS_PER_FOOT;	/* Feet to metres */
+		tx_site[1].alt /= METERS_PER_FOOT;	/* Feet to metres */
+		clutter /= METERS_PER_FOOT;	/* Feet to metres */
+		
+		WHERE
+		
+		
+		#define DEG2RAD		1.74532925199e-02
+		#define	EARTHRADIUS	20902230.97
+		#define	METERS_PER_MILE 1609.344
+		#define	METERS_PER_FOOT 0.3048
+		#define	KM_PER_MILE	1.609344
+		#define	FEET_PER_MILE	5280.0
+		#define FOUR_THIRDS	1.3333333333333
+	
 > ALGORITHM
 
 Clase: **COST231**<br>
 Complejidad: MEDIA
-
 
 Este modelo extensión de Hata model extiende la frecuencia de trabajo hasta 2000MHz. Para áreas urbanas con  GSM-1800.
 
