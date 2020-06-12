@@ -6,9 +6,9 @@ Las especificaciones y los test que incorporan la aplicación ss definen las sig
 	-Distance km
 	-Effective Radiated Power Watts
 	-lat Tx Latitude decimal degrees -70/+70
-        -lon Tx Longitude decimal degrees -180/+180
+	-lon Tx Longitude decimal degrees -180/+180
 	-rla  Rx Latitude for PPA (decimal degrees) -70/+70
-        -rlo  Rx Longitude for PPA (decimal degrees)
+	-rlo  Rx Longitude for PPA (decimal degrees)
 	-txh Tx Height (above ground) Meters
 	-m Metric units of measurement, if -m set:
 		altitudeLR /= METERS_PER_FOOT;	/* 10ft * 0.3 = 3.3m */
@@ -17,10 +17,9 @@ Las especificaciones y los test que incorporan la aplicación ss definen las sig
 		tx_site[0].alt /= METERS_PER_FOOT;	/* Feet to metres */
 		tx_site[1].alt /= METERS_PER_FOOT;	/* Feet to metres */
 		clutter /= METERS_PER_FOOT;	/* Feet to metres */
-		
+
 		WHERE
-		
-		
+
 		#define DEG2RAD		1.74532925199e-02
 		#define	EARTHRADIUS	20902230.97
 		#define	METERS_PER_MILE 1609.344
