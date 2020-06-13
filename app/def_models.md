@@ -41,7 +41,7 @@ Atributos:<br>
 	- f Freq
 	- TxH Height Tx
 	- RxH Height Rx
-	- d: Propagation ratio
+	- d: distance
 	- mode (Urbano, Suburbano, rural)
 Frecuencia 150 - 2000 MHz
 
@@ -58,7 +58,7 @@ Atributos:<br>
 	- f Freq
 	- TxH Height Tx
 	- RxH Height Rx
-	- d: Propagation ratio
+	- d: distance
 	- mode (Urbano, Suburbano, rural)
 Trabaja en GHz. Diferencia entre ciudades con grandes edificios(rascacielos) y ciudades medianas (Europeas).
 
@@ -74,7 +74,7 @@ Atributos:<br>
 	- f Freq
 	- TxH Height Tx
 	- RxH Height Rx
-	- d: Propagation ratio
+	- d: distance
 	- mode (Urbano, Suburbano, rural)
 Frecuencias bajas max 1GHz. No tiene en cuentra otro tipos de pérdidas subyacentes.
 
@@ -90,7 +90,7 @@ Atributos:<br>
 - f Freq
 - TxH Height Tx
 - RxH Height Rx
-- d: Propagation ratio
+- d: distance
 - mode (Urbano, Suburbano, rural)
 
 Métodos:
@@ -107,7 +107,7 @@ Puede verse afectada por la diferencia entre la ganancia de la antena transmisor
 Atributos:<br>
 
 	- f Freq
-	- d Propagation ratio
+	- d distance
 	- mode
 Admite cualquier frecuencia y distancia.
 
@@ -125,7 +125,7 @@ Atributos:<br>
 	- f Freq
 	- TxH Height Tx
 	- RxH Height Rx
-	- d: Propagation ratio
+	- d: distance
 	- mode (Urbano, Suburbano, rural)
 	
 Métodos:<br>
@@ -201,7 +201,7 @@ Complejidad: FACIL
 Atributos:
 
 	- f Freq
-	- d Propagation ratio
+	- d distance
 	- t: Terrain permittivity: 1 - 15 (Bad to Good)
 
 Métodos:
@@ -218,7 +218,7 @@ Atributos:
 	- f Freq
 	- TxH Height Tx
 	- RxH Height Rx
-	- d: Propagation ratio
+	- d: distance
 	- mode (Urbano, Suburbano, rural)<br>
 
 Métodos:
