@@ -185,6 +185,7 @@ Métodos:<br>
 Clase: **pel**<br>
 Complejidad: FACIL
 
+Frequency: N/A. Distance (km): Any
 Atributos:
 
 	- f Freq
@@ -198,6 +199,7 @@ Métodos:
 Clase: **soil**<br>
 Complejidad: FACIL
 
+Frequency: Any MHz. Distance: Any Km. Terrain permittivity: 1 - 15 (Bad to Good)
 Atributos:
 
 	- f Freq
@@ -212,6 +214,11 @@ Clase: **sui**<br>
 Complejidad: MEDIA
 
 Stanford University Interim
+
+- f = Frequency (MHz) 1900 to 11000 .TxH =  Transmitter height (m). RxH = Receiver height (m). d = distance (km)
+- mode A1 = URBAN / OBSTRUCTED
+- mode B2 = SUBURBAN / PARTIALLY OBSTRUCTED
+- mode C3 = RURAL / OPEN
 
 Atributos:
 
